@@ -4,6 +4,7 @@ import "./App.css";
 import Web3 from "web3";
 import {} from "./sdk/metamask";
 import ServerDataSource from "./sdk/api";
+import { TestConnectDiv } from "./presentation/component/Wallet";
 
 function App() {
   const testOpenSea = async () => {
@@ -12,6 +13,8 @@ function App() {
       "0xD59134a3E004609f39C601cE6F0739df2cc78240"
     );
     console.log(res);
+    console.log(process.env.REACT_APP_TEST_KEY);
+    console.log(process.env.NODE_ENV);
   };
 
   useEffect(() => {
@@ -33,6 +36,7 @@ function App() {
         >
           Learn React
         </a>
+        <TestConnectDiv />
       </header>
     </div>
   );

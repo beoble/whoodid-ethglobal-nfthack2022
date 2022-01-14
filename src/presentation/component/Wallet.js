@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { metaMask, hooks } from "../../sdk/metamask";
+import { getAddChainParameters, CHAINS, URLS } from "../../sdk/chains";
 
-export const Status = (chainId, accounts, error) => {
+export const Status = ({ hooks }) => {
+  const { useChainId, useAccounts, useError } = hooks;
+  const chainId = useChainId();
+  const accounts = useAccounts();
+  const error = useError();
+  const connected = chainId && accounts;
   return (
     <div>
       <b>MetaMask</b>
@@ -19,9 +25,39 @@ export const Status = (chainId, accounts, error) => {
   );
 };
 
-export const ChainId = ({ hooks }) => {};
+export const ChainId = ({ hooks }) => {
+  return <div />;
+};
 
-export const Accounts = ({ hooks }) => {};
+export const Accounts = ({ hooks }) => {
+  return <div />;
+};
+
+const MetaMaskSelect = ({ chainId, setChainId }) => {
+  return (
+    <label>
+      Chain:{" "}
+      <select
+        value={`${chainId}`}
+        onChange={
+          setChainId
+            ? (event) => {
+                setChainId(Number(event.target.value));
+              }
+            : undefined
+        }
+        disabled={!setChainId}
+      >
+        <option value={-1}>Default</option>
+        {Object.keys(URLS).map((chainId) => (
+          <option key={chainId} value={chainId}>
+            {CHAINS[Number(chainId)].name}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+};
 
 export const MetaMaskConnect = ({ connector, hooks }) => {
   const { useChainId, useIsActivating, useError, useIsActive } = hooks;
@@ -100,14 +136,11 @@ export const MetaMaskConnect = ({ connector, hooks }) => {
 };
 
 export const TestConnectDiv = () => {
-  const connector = metaMask;
-
   return (
     <div
       style={{ display: "flex", flexFlow: "wrap", fontFamily: "sans-serif" }}
     >
       <div
-        key={i}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -121,13 +154,13 @@ export const TestConnectDiv = () => {
         }}
       >
         <div>
-          <Status connector={connector} hooks={hooks} />
+          <Status hooks={hooks} />
           <br />
           <ChainId hooks={hooks} />
           <Accounts hooks={hooks} />
           <br />
         </div>
-        <MetaMaskConnect connector={connector} hooks={hooks} />
+        <MetaMaskConnect connector={metaMask} hooks={hooks} />
       </div>
     </div>
   );
