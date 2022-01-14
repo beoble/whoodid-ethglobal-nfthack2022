@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { formatEther } from "@ethersproject/units";
 import { metaMask, hooks } from "../../sdk/metamask";
 import { getAddChainParameters, CHAINS, URLS } from "../../sdk/chains";
 
@@ -26,11 +27,66 @@ export const Status = ({ hooks }) => {
 };
 
 export const ChainId = ({ hooks }) => {
-  return <div />;
+  const { useChainId } = hooks;
+  const chainId = useChainId();
+  return <div>Chain Id: {chainId ? <b>{chainId}</b> : "-"}</div>;
+};
+
+const useBalances = (provider, accounts) => {
+  const [balances, setBalances] = useState();
+
+  useEffect(() => {
+    if (provider && accounts?.length) {
+      let stale = false;
+
+      void Promise.all(
+        accounts.map((account) => provider.getBalance(account))
+      ).then((balances) => {
+        if (!stale) {
+          setBalances(balances);
+        }
+      });
+
+      return () => {
+        stale = true;
+        setBalances(undefined);
+      };
+    }
+  }, [provider, accounts]);
+
+  return balances;
 };
 
 export const Accounts = ({ hooks }) => {
-  return <div />;
+  const { useAccounts, useProvider, useENSNames } = hooks;
+  const provider = useProvider();
+  const accounts = useAccounts();
+  const ENSNames = useENSNames(provider);
+
+  const balances = useBalances(provider, accounts);
+
+  return (
+    <div>
+      Accounts:
+      {accounts === undefined
+        ? " -"
+        : accounts.length === 0
+        ? " None"
+        : accounts?.map((account, i) => (
+            <ul
+              key={account}
+              style={{
+                margin: 0,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              <b>{ENSNames?.[i] ?? account}</b>
+              {balances?.[i] ? ` (Ξ${formatEther(balances[i])})` : null}
+            </ul>
+          ))}
+    </div>
+  );
 };
 
 const MetaMaskSelect = ({ chainId, setChainId }) => {
