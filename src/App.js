@@ -29,7 +29,7 @@ function App() {
       <MainAppBar />
       <MainHeroContainer>
         <SocialClubListBar />
-        <TestConnectDiv />
+        {/*<TestConnectDiv />*/}
       </MainHeroContainer>
     </AppContainer>
   );
