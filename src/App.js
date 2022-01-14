@@ -4,6 +4,9 @@ import "./App.css";
 import Web3 from "web3";
 import {} from "./sdk/metamask";
 import ServerDataSource from "./sdk/api";
+import MainAppBar from "./presentation/component/appbar";
+import {AppContainer, MainHeroContainer} from "./styles/container";
+import SocialClubListBar from "./presentation/component/socialClubListBar";
 
 function App() {
   const testOpenSea = async () => {
@@ -19,22 +22,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <MainAppBar />
+      <MainHeroContainer>
+        <SocialClubListBar />
+      </MainHeroContainer>
+    </AppContainer>
   );
 }
 
