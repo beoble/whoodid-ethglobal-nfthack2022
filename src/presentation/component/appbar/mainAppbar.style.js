@@ -77,6 +77,7 @@ export const ProfileImage = styled.img`
   border-radius: 50%;
   margin-left: 10px;
   cursor: pointer;
+  background: black;
   
   &:hover {
     border: 2px solid #f0b90b;;

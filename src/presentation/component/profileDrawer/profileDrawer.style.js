@@ -8,7 +8,6 @@ export const MaterialProfileDrawer = styled(Drawer)`
   & .MuiDrawer-paper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: fixed;
     right: 0;
@@ -19,3 +18,16 @@ export const MaterialProfileDrawer = styled(Drawer)`
     overflow-x: hidden;
   }
 `;
+
+export const ProfileDrawerInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+`
+
+export const MainNftProfileImage = styled.img`
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+`
