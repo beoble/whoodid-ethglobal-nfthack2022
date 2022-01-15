@@ -33,11 +33,11 @@ const ProfileDrawer = ({
 
   return (
     <MaterialProfileDrawer
-      open={true}
+      open={isProfileDrawerOpen}
       anchor="right"
       onClose={() => setIsProfileDrawerOpen(false)}
     >
-      {mockConnected ? (
+      {connected ? (
         <ProfileDrawerInnerContainer>
           <MainNftProfileImage src={currentNftProfile} alt="main NFT profile" />
           <div
