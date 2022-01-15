@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { HashtagContext } from "../App";
+import { HashtagContext } from "../contexts/hashtagContext";
 
 const useHashtag = () => {
   const { hashtags, setHashtags } = useContext(HashtagContext);

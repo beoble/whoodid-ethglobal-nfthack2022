@@ -1,7 +1,7 @@
 import ServerDataSource from "./api";
 import axios from "axios";
 import { Path } from "./path";
-import { TrapTrap } from "../constants";
+import { TrapTrap, VoidSnax } from "../constants";
 
 export const testOpenSea = async () => {
   let server = new ServerDataSource();
@@ -31,17 +31,32 @@ export class WhoodidSdk {
   testOpenSea = async () => {
     let data = await this.getNFTByAddress(TrapTrap);
     console.log(data);
-    console.log(this.getNFTImageAddresses(data));
+    let urls = await this.getNFTImageUrlsByAddresss(TrapTrap);
+    console.log(urls);
     let collections = await this.getCollectibleListByAddress(TrapTrap);
     console.log(collections);
+    let openseaCollections = await this.getOpenSeaCollectionsByAddress(
+      TrapTrap
+    );
+    console.log(openseaCollections);
   };
 
   getNFTByAddress = async (address) => {
     let param = { owner: address };
-    return (await this.getRestApi(Path.OPENSEA_ASSETS, param)).data.assets;
+    return await (
+      await this.getRestApi(Path.OPENSEA_ASSETS, param)
+    ).data.assets;
   };
 
-  getNFTImageAddresses = (nfts) => {
+  getOpenSeaCollectionsByAddress = async (address) => {
+    let param = { owner: address };
+    return await (
+      await this.getRestApi(Path.OPENSEA_COLLECTIONS, param)
+    ).data.collections;
+  };
+
+  getNFTImageUrlsByAddresss = async (address) => {
+    let nfts = await this.getNFTByAddress(address);
     return nfts.map((nft) => nft.image_url);
   };
 

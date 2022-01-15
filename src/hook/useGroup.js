@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { GroupGontext } from "../App";
+import { GroupGontext } from "../contexts/groupContext";
 
 const useGroup = () => {
   const { groups, setGroups } = useContext(GroupGontext);

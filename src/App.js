@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 import "./App.css";
-import {} from "./sdk/metamask";
 import MainAppBar from "./presentation/component/appbar";
 import { AppContainer, MainHeroContainer } from "./styles/container";
 import SocialClubListBar from "./presentation/component/socialClubListBar";
@@ -15,9 +15,11 @@ import {
   PostMelvin,
   PostShipDuck,
 } from "./Posts";
-import { testOpenSea, WhoodidSdk } from "./sdk/whoodid_sdk";
+import { WhoodidSdk } from "./sdk/whoodid_sdk";
 import { truncateString } from "./util";
-import { TrapTrap } from "./constants";
+import { GroupGontext } from "./contexts/groupContext";
+import { HashtagContext } from "./contexts/hashtagContext";
+import { WhoodidContext } from "./contexts/whoodidContext";
 
 const PostContainer = styled.div`
   flex-direction: column;
@@ -45,21 +47,21 @@ const Posts = styled.div`
   margin-top: 90px;
 `;
 
-export const GroupGontext = createContext({
-  groups: [],
-  setGroups: () => {},
-});
-
-export const HashtagContext = createContext({
-  hashtags: [],
-  setHashtags: () => {},
-});
-
 function App() {
   const [groups, setGroups] = useState([NFTGroup.Whoodid]);
   const [hashtags, setHashtags] = useState([HashTags]);
   const groupValue = { groups, setGroups };
+  const hashtagValue = { hashtags, setHashtags };
   const sdk = new WhoodidSdk();
+
+  axios.interceptors.request.use(
+    (config) => {
+      console.log(config);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 
   useEffect(() => {
     //testOpenSea();
@@ -68,38 +70,42 @@ function App() {
 
   return (
     <GroupGontext.Provider value={groupValue}>
-      <AppContainer>
-        <MainAppBar />
-        <MainHeroContainer>
-          <SocialClubListBar />
-          <PostContainer>
-            <PostHeader>
-              <span
-                style={{
-                  alignItems: "center",
-                  display: "flex",
-                  fontSize: "25px",
-                }}
-              >
-                {truncateString(
-                  groups.toString().replace(/,/g, ", "),
-                  35,
-                  30,
-                  0
-                )}
-              </span>
-            </PostHeader>
-            <Posts>
-              <PostGreenSalad />
-              <PostMelvin />
-              <PostShipDuck />
-              <PostHoodie />
-              <PostKryptonium />
-            </Posts>
-          </PostContainer>
-          <HashtagListBar />
-        </MainHeroContainer>
-      </AppContainer>
+      <HashtagContext.Provider value={hashtagValue}>
+        <WhoodidContext.Provider value={sdk}>
+          <AppContainer>
+            <MainAppBar />
+            <MainHeroContainer>
+              <SocialClubListBar />
+              <PostContainer>
+                <PostHeader>
+                  <span
+                    style={{
+                      alignItems: "center",
+                      display: "flex",
+                      fontSize: "25px",
+                    }}
+                  >
+                    {truncateString(
+                      groups.toString().replace(/,/g, ", "),
+                      35,
+                      30,
+                      0
+                    )}
+                  </span>
+                </PostHeader>
+                <Posts>
+                  <PostGreenSalad />
+                  <PostMelvin />
+                  <PostShipDuck />
+                  <PostHoodie />
+                  <PostKryptonium />
+                </Posts>
+              </PostContainer>
+              <HashtagListBar />
+            </MainHeroContainer>
+          </AppContainer>
+        </WhoodidContext.Provider>
+      </HashtagContext.Provider>
     </GroupGontext.Provider>
   );
 }
