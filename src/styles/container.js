@@ -10,5 +10,5 @@ export const AppContainer = styled.div`
 export const MainHeroContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 92%;
+  min-height: 92%;
 `;

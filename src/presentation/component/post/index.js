@@ -27,6 +27,7 @@ const PostCard = styled(Card)`
   max-width: 500px;
   width: fit-content;
   margin: 0 auto;
+  margin-bottom: 30px;
   padding: 20px;
   min-width: 500px;
 `;
@@ -66,14 +67,16 @@ export default function Post({ profile, name, isVerified, content, image }) {
         sx={{ padding: "0 0 16px 0" }}
       />
 
-      <CardContent sx={{ padding: 0 }}>{content}</CardContent>
-      <CardMedia
-        component="img"
-        height="250"
-        image={image}
-        alt="Paella dish"
-        sx={{ padding: "20px 0" }}
-      />
+      <CardContent sx={{ padding: "0 0 20px 0" }}>{content}</CardContent>
+      {image && (
+        <CardMedia
+          component="img"
+          height="250"
+          image={image}
+          alt="Paella dish"
+          sx={{ paddingBottom: "20px" }}
+        />
+      )}
       <CardActions
         disableSpacing
         sx={{ justifyContent: "space-between", padding: "0" }}
