@@ -23,7 +23,7 @@ const MainAppBar = () => {
     <MaterialAppBar>
       <AppbarInnerContainer>
         <MaterialAppBarLogo>
-          <img src={WhoodidLogoImage} alt="Whoodid Logo" width={300} />
+          <img src={WhoodidLogoImage} alt="Whoodid Logo" width={250}/>
         </MaterialAppBarLogo>
         <ButtonContainer>
           <MaterialConnectButton onClick={connect}>

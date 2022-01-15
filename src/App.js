@@ -18,14 +18,32 @@ import F10Klaytn from "./assets/f10xklaytn.png";
 import Doodle662 from "./assets/nft/doodle316.png";
 
 import Typography from "@mui/material/Typography";
+import useGroup from "./hook/useGroup";
 
 const PostContainer = styled.div`
-  padding: 50px 0;
+  flex-direction: column;
   width: 100%;
   height: fit-content;
   background-color: #00000015;
   margin: 72px 200px 0px 260px;
 `;
+
+const PostHeader = styled.div`
+  position: fixed;
+  box-sizing: border-box;
+  width: inherit;
+  max-width: inherit;
+  height: 60px;
+  background-color: white;
+  padding: 10px 20px;
+  z-index: 900;
+  vertical-align: middle;
+  display: flex;
+`
+
+const Posts = styled.div`
+  margin-top: 90px;
+`
 
 const PostGreenSalad = () => {
   const Content = () => {
@@ -156,6 +174,8 @@ const PostHoodie = () => {
 };
 
 function App() {
+  const { groups } = useGroup();
+
   const testOpenSea = async () => {
     let server = new ServerDataSource();
     let res1 = await server.getAccountOpenSea(
@@ -172,6 +192,7 @@ function App() {
 
   useEffect(() => {
     testOpenSea();
+    console.log(groups)
   }, []);
 
   return (
@@ -179,15 +200,19 @@ function App() {
       <MainAppBar />
       <MainHeroContainer>
         <SocialClubListBar />
-        {/*<TestConnectDiv />*/}
-        <PostContainer>
-          <PostGreenSalad />
-          <PostMelvin />
-          <PostShipDuck />
-          <PostHoodie />
-          <PostKryptonium />
-        </PostContainer>
         <HashtagListBar />
+        <PostContainer>
+          <PostHeader>
+            <span style={{alignItems: "center", display: "flex", fontSize: "25px"}}>{groups.toString()}</span>
+          </PostHeader>
+          <Posts>
+            <PostGreenSalad />
+            <PostMelvin />
+            <PostShipDuck />
+            <PostHoodie />
+            <PostKryptonium />
+          </Posts>
+        </PostContainer>
       </MainHeroContainer>
     </AppContainer>
   );

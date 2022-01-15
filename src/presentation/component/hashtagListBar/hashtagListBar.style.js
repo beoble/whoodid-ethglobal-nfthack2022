@@ -8,11 +8,12 @@ export const HashtagList = styled(List)`
     position: fixed;
     right: 0;
     width: 200px;
-    height: 100%;
+    height: calc(100vh - 72px);
     overflow-Y: scroll;
     padding: 0;
     margin-top: 72px;
     background-color: white;
+    z-index: 910;
     &::-webkit-scrollbar {
       width: 8px;
     }

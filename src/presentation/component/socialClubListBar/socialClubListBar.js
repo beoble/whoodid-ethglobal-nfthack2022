@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Checkbox,
@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import ImageIcon from "@mui/icons-material/Image";
 import { SocialClubList, SocialClubListItem } from "./socialClubListBar.style";
+import useGroup from "../../../hook/useGroup";
 
 const SocialClubListBar = () => {
   const initialValue = [
@@ -18,6 +19,14 @@ const SocialClubListBar = () => {
   ];
 
   const [selectedFlag, setSelectedFlag] = useState(initialValue);
+
+  const {setGroups} = useGroup();
+
+  useEffect(() => {
+    let selected = selectedFlag.filter((item)=>item.selected === true).map((item)=>item.name);
+    console.log(selected);
+    setGroups(selected)
+  }, [selectedFlag])
 
   const socialClubCard = (socialClub, index) => {
     return (

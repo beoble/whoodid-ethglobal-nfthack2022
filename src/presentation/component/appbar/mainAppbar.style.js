@@ -19,6 +19,7 @@ export const MaterialAppBarLogo = styled.div`
   justify-content: flex-start;
   color: inherit;
   width: 15%;
+  margin: auto 0;
 `;
 
 export const ButtonContainer = styled.div`
