@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { List, ListItem, ListItemButton } from "@mui/material";
+import {Drawer, List, ListItem, ListItemButton} from "@mui/material";
 
 export const HashtagList = styled(List)`
   &.MuiList-root {
@@ -9,7 +9,6 @@ export const HashtagList = styled(List)`
     right: 0;
     width: 250px;
     height: calc(100vh - 72px);
-    overflow-Y: scroll;
     margin-top: 72px;
     background-color: white;
     z-index: 910;

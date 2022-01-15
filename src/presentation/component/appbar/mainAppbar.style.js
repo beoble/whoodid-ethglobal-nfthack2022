@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Button} from "@mui/material";
+import {Button, Drawer} from "@mui/material";
 
 export const MaterialAppBar = styled.div`
   background: #71b67f;
@@ -26,6 +26,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   width: fit-content;
   justify-content: center;
+  align-items: center;
 `
 
 export const MaterialConnectButton = styled(Button)`
@@ -36,6 +37,7 @@ export const MaterialConnectButton = styled(Button)`
     color: white;
     background-color: black;
     border-radius: 30px;
+    height: 50px;
 
     &:hover {
       background-color: black;
@@ -51,4 +53,32 @@ export const AppbarInnerContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`
+
+export const ProfileButton = styled(Button)`
+  &.MuiButton-root {
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    margin: 10px 0 10px 10px;
+
+
+    &:hover {
+      background-color: black;
+      color: #f0b90b;
+      transition: background-color 0.5s ease;
+    }
+  }
+`
+
+export const ProfileImage = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  
+  &:hover {
+    border: 2px solid #f0b90b;;
+  }
 `
