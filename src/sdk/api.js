@@ -2,9 +2,7 @@ import axios from "axios";
 import { Path } from "./path";
 
 export default class ServerDataSource {
-  
-
-  async tryRestApi(apiCallFunc, header={}, param={}) {
+  async tryRestApi(apiCallFunc, header = {}, param = {}) {
     try {
       let res = await apiCallFunc();
       if (res?.status !== 200) throw res?.status;
@@ -14,11 +12,11 @@ export default class ServerDataSource {
     }
   }
 
-  async getRestApiData(path, header={}, param={}) {
+  async getRestApiData(path, header = {}, param = {}) {
     let config = {
-        headers: header,
-        params: param
-    }
+      headers: header,
+      params: param,
+    };
     return this.tryRestApi(async () => {
       return await axios.get(path || "", config);
     });
@@ -43,14 +41,19 @@ export default class ServerDataSource {
   }
 
   async getAccountNFTPort(address) {
-    let header = {"Authorization":"1bc8affc-83d5-422b-a66b-4e2b0456fc53"}
-    return this.getRestApiData(`${Path.NFTPORT}${Path.NFTPORT_ACCOUNTS}${address}`, header=header);
+    let header = { Authorization: "1bc8affc-83d5-422b-a66b-4e2b0456fc53" };
+    return this.getRestApiData(
+      `${Path.NFTPORT}${Path.NFTPORT_ACCOUNTS}${address}`,
+      (header = header)
+    );
   }
 
   async getAccountOpenSea(address) {
-    let param = {"owner":address}
-    return this.getRestApiData(`${Path.OPENSEA}${Path.OPENSEA_ASSETS}`, {}, param);
+    let param = { owner: address };
+    return this.getRestApiData(
+      `${Path.OPENSEA}${Path.OPENSEA_ASSETS}`,
+      {},
+      param
+    );
   }
-
-  
 }

@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { formatEther } from "@ethersproject/units";
 import { metaMask, hooks } from "../../sdk/metamask";
+import { getAddChainParameters, CHAINS, URLS } from "../../sdk/chains";
 
-export const Status = (chainId, accounts, error) => {
+export const Status = ({ hooks }) => {
+  const { useChainId, useAccounts, useError } = hooks;
+  const chainId = useChainId();
+  const accounts = useAccounts();
+  const error = useError();
+  const connected = chainId && accounts;
   return (
     <div>
       <b>MetaMask</b>
@@ -19,9 +26,94 @@ export const Status = (chainId, accounts, error) => {
   );
 };
 
-export const ChainId = ({ hooks }) => {};
+export const ChainId = ({ hooks }) => {
+  const { useChainId } = hooks;
+  const chainId = useChainId();
+  return <div>Chain Id: {chainId ? <b>{chainId}</b> : "-"}</div>;
+};
 
-export const Accounts = ({ hooks }) => {};
+const useBalances = (provider, accounts) => {
+  const [balances, setBalances] = useState();
+
+  useEffect(() => {
+    if (provider && accounts?.length) {
+      let stale = false;
+
+      void Promise.all(
+        accounts.map((account) => provider.getBalance(account))
+      ).then((balances) => {
+        if (!stale) {
+          setBalances(balances);
+        }
+      });
+
+      return () => {
+        stale = true;
+        setBalances(undefined);
+      };
+    }
+  }, [provider, accounts]);
+
+  return balances;
+};
+
+export const Accounts = ({ hooks }) => {
+  const { useAccounts, useProvider, useENSNames } = hooks;
+  const provider = useProvider();
+  const accounts = useAccounts();
+  const ENSNames = useENSNames(provider);
+
+  const balances = useBalances(provider, accounts);
+
+  return (
+    <div>
+      Accounts:
+      {accounts === undefined
+        ? " -"
+        : accounts.length === 0
+        ? " None"
+        : accounts?.map((account, i) => (
+            <ul
+              key={account}
+              style={{
+                margin: 0,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              <b>{ENSNames?.[i] ?? account}</b>
+              {balances?.[i] ? ` (Ξ${formatEther(balances[i])})` : null}
+            </ul>
+          ))}
+    </div>
+  );
+};
+
+const MetaMaskSelect = ({ chainId, setChainId }) => {
+  return (
+    <label>
+      Chain:{" "}
+      <select
+        value={`${chainId}`}
+        onChange={
+          setChainId
+            ? (event) => {
+                setChainId(Number(event.target.value));
+              }
+            : undefined
+        }
+        disabled={!setChainId}
+      >
+        <option value={-1}>Default</option>
+        {Object.keys(URLS).map((chainId) => (
+          <option key={chainId} value={chainId}>
+            {CHAINS[Number(chainId)].name}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+};
 
 export const MetaMaskConnect = ({ connector, hooks }) => {
   const { useChainId, useIsActivating, useError, useIsActive } = hooks;
@@ -100,14 +192,11 @@ export const MetaMaskConnect = ({ connector, hooks }) => {
 };
 
 export const TestConnectDiv = () => {
-  const connector = metaMask;
-
   return (
     <div
       style={{ display: "flex", flexFlow: "wrap", fontFamily: "sans-serif" }}
     >
       <div
-        key={i}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -121,13 +210,13 @@ export const TestConnectDiv = () => {
         }}
       >
         <div>
-          <Status connector={connector} hooks={hooks} />
+          <Status hooks={hooks} />
           <br />
           <ChainId hooks={hooks} />
           <Accounts hooks={hooks} />
           <br />
         </div>
-        <MetaMaskConnect connector={connector} hooks={hooks} />
+        <MetaMaskConnect connector={metaMask} hooks={hooks} />
       </div>
     </div>
   );
