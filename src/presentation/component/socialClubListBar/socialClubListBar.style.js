@@ -30,11 +30,12 @@ export const SocialClubListItem = styled(ListItem)`
   &.MuiListItem-root {
     display: flex;
     flex-direction: row;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
     margin: 1px 0;
+    z-index: 99;
 
     &.Mui-selected {
-      background-color: darkgreen;
+      background-color: #c4c4c4;
     }
   }
 `;

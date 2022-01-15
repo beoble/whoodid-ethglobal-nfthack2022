@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Drawer, List, ListItem, ListItemButton} from "@mui/material";
+import { Drawer, List, ListItem, ListItemButton } from "@mui/material";
 
 export const HashtagList = styled(List)`
   &.MuiList-root {
@@ -42,7 +42,7 @@ export const HashtagListItem = styled(ListItem)`
     margin: 1px 0;
 
     &.Mui-selected {
-      background-color: darkgreen;
+      background-color: #c4c4c4;
     }
   }
 `;

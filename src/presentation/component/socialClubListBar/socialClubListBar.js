@@ -13,15 +13,15 @@ const SocialClubListBar = () => {
   const [socialClubList, setSocialClubList] = useState([]);
 
   const initialFetchedValue = [
-    { name: "Whoodid", hooders: 3333, isSelected: false },
-    { name: "BoredApeYachtClub", hooders: 4444,isSelected: false },
-    { name: "Cryptoadz", hooders: 5555,isSelected: false },
+    { name: "Whoodid", hooders: 3333, isSelected: true },
+    { name: "BoredApeYachtClub", hooders: 4444, isSelected: false },
+    { name: "Cryptoadz", hooders: 5555, isSelected: false },
     { name: "CryptoPunks", hooders: 6666, isSelected: false },
   ];
 
   useEffect(() => {
     setSocialClubList(initialFetchedValue);
-  }, [])
+  }, []);
 
   const updateSocialClubListSelection = (index) => {
     let newArr = [...socialClubList];
@@ -30,22 +30,24 @@ const SocialClubListBar = () => {
       isSelected: !socialClubList[index].isSelected,
     };
     setSocialClubList(newArr);
-  }
+  };
 
-  const {setGroups} = useGroup();
+  const { setGroups } = useGroup();
 
   useEffect(() => {
-    let selected = socialClubList.filter((item)=>item.selected === true).map((item)=>item.name);
-    console.log(selected);
-    setGroups(selected)
-  }, [socialClubList])
+    let selected = socialClubList
+      .filter((item) => item.isSelected === true)
+      .map((item) => item.name);
+    setGroups(selected);
+  }, [socialClubList]);
 
   const socialClubCard = (socialClub, index) => {
     return (
       <SocialClubListItem
+        key={socialClub.name}
         disablePadding
         onClick={() => {
-          updateSocialClubListSelection(index)
+          updateSocialClubListSelection(index);
         }}
         selected={socialClub.isSelected}
       >
@@ -55,7 +57,10 @@ const SocialClubListBar = () => {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={socialClub.name} secondary={`${socialClub.hooders} Followers`} />
+          <ListItemText
+            primary={socialClub.name}
+            secondary={`${socialClub.hooders} Followers`}
+          />
         </ListItemButton>
       </SocialClubListItem>
     );

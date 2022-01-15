@@ -53,6 +53,7 @@ const HashtagListBar = () => {
   const hashtagCard = (hashtag, index) => {
     return (
       <HashtagListItem
+        key={hashtag.name}
         disablePadding
         onClick={() => {
           updateHashtagListSelection(index);
