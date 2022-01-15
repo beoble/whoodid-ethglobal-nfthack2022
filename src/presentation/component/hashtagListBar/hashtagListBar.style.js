@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {List, ListItem, ListItemButton} from "@mui/material";
 
-export const SocialClubList = styled(List)`
+export const HashtagList = styled(List)`
   &.MuiList-root {
     display: flex;
     flex-direction: column;
@@ -28,9 +28,8 @@ export const SocialClubList = styled(List)`
   }
 `
 
-export const SocialClubListItem = styled(ListItem)`
+export const HashtagListItem = styled(ListItem)`
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
-  margin: 2px;
+  border-radius: 20px;
 `

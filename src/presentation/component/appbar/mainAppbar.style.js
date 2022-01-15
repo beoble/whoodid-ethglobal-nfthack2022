@@ -8,7 +8,6 @@ export const MaterialAppBar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
   height: 8%;
 `;
 
@@ -19,17 +18,22 @@ export const MaterialAppBarLogo = styled.div`
   letter-spacing: 1px;
   justify-content: flex-start;
   color: inherit;
+  width: 15%;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  width: 15%;
+  justify-content: center;
+`
 
 export const MaterialConnectButton = styled(Button)`
   &.MuiButton-root {
-    display: flex;
     font-size: 15px;
     padding: 10px 15px;
     margin: 10px 0;
     color: white;
     background-color: black;
-    // border: 2px solid black;
     border-radius: 30px;
 
     &:hover {

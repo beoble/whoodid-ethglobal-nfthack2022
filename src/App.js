@@ -7,6 +7,7 @@ import { AppContainer, MainHeroContainer } from "./styles/container";
 import SocialClubListBar from "./presentation/component/socialClubListBar";
 import styled from "styled-components";
 import Post from "./presentation/component/post";
+import HashtagListBar from "./presentation/component/hashtagListBar";
 import Coolcat279 from "./assets/nft/coolcat279.png";
 import Coolcat7795 from "./assets/nft/coolcat7795.png";
 import MelvinProfile from "./assets/nft/phantabear1845.png";
@@ -20,7 +21,7 @@ import Typography from "@mui/material/Typography";
 
 const PostContainer = styled.div`
   padding: 50px 0;
-  width: 100%;
+  width: 70%;
   background-color: #00000015;
 `;
 
@@ -184,6 +185,7 @@ function App() {
           <PostHoodie />
           <PostKryptonium />
         </PostContainer>
+        <HashtagListBar />
       </MainHeroContainer>
     </AppContainer>
   );
