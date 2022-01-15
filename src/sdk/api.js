@@ -20,7 +20,7 @@ export default class ServerDataSource {
         params: param
     }
     return this.tryRestApi(async () => {
-      await axios.get(path || "", config);
+      return await axios.get(path || "", config);
     });
   }
 
