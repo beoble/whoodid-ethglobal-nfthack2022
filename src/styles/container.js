@@ -8,6 +8,7 @@ export const AppContainer = styled.div`
 
 export const MainHeroContainer = styled.div`
   display: flex;
-  height: 100%;
+  flex-direction: row;
+  height: 90.5%;
   width: 100%;
 `;

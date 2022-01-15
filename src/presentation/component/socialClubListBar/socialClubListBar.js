@@ -1,23 +1,33 @@
 import React from "react";
-import {Avatar, List, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
+import {Avatar, Checkbox, ListItemAvatar, ListItemButton, ListItemText} from "@mui/material";
 import ImageIcon from '@mui/icons-material/Image';
+import {SocialClubList, SocialClubListItem} from "./socialClubListBar.style";
 
 const socialClubCard = () => {
     return (
-        <ListItem>
-            <ListItemAvatar>
-                <Avatar>
-                    <ImageIcon/>
-                </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Photos" secondary="Jan 9, 2014"/>
-        </ListItem>
+        <SocialClubListItem
+            secondaryAction={
+                <Checkbox
+                    edge="end"
+                />
+            }
+            disablePadding
+        >
+            <ListItemButton>
+                <ListItemAvatar>
+                    <Avatar>
+                        <ImageIcon/>
+                    </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Social Club" secondary="3333 Followers"/>
+            </ListItemButton>
+        </SocialClubListItem>
     )
 }
 
 const SocialClubListBar = () => {
     return (
-        <List style={{ display: 'flex', flexDirection: 'column', width: '25%', height: '100%', overflowY: 'scroll'}}>
+        <SocialClubList>
             {socialClubCard()}
             {socialClubCard()}
             {socialClubCard()}
@@ -36,10 +46,7 @@ const SocialClubListBar = () => {
             {socialClubCard()}
             {socialClubCard()}
             {socialClubCard()}
-            {socialClubCard()}
-            {socialClubCard()}
-            {socialClubCard()}
-        </List>
+        </SocialClubList>
     );
 };
 
