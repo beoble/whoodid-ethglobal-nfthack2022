@@ -7,12 +7,38 @@ import { AppContainer, MainHeroContainer } from "./styles/container";
 import SocialClubListBar from "./presentation/component/socialClubListBar";
 import styled from "styled-components";
 import Post from "./presentation/component/post";
+import Coolcat279 from "./assets/nft/coolcat279.png";
+import Coolcat7795 from "./assets/nft/coolcat7795.png";
+
+import Typography from "@mui/material/Typography";
 
 const PostContainer = styled.div`
   padding: 50px 0;
   width: 100%;
   background-color: #00000015;
 `;
+
+const PostGreenSalad = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Hi, I got another{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #coolcat
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      profile={Coolcat279}
+      name="greensalad.eth"
+      isVerified
+      content={<Content />}
+      image={Coolcat7795}
+    />
+  );
+};
 
 function App() {
   const testOpenSea = async () => {
@@ -40,7 +66,7 @@ function App() {
         <SocialClubListBar />
         {/*<TestConnectDiv />*/}
         <PostContainer>
-          <Post />
+          <PostGreenSalad />
         </PostContainer>
       </MainHeroContainer>
     </AppContainer>
