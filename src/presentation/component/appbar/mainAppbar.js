@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  AppbarInnerContainer,
   ButtonContainer,
   MaterialAppBar,
   MaterialAppBarLogo,
@@ -20,16 +21,18 @@ const MainAppBar = () => {
 
   return (
     <MaterialAppBar>
-      <MaterialAppBarLogo>
-        <img src={WhoodidLogoImage} alt="Whoodid Logo" width={300} />
-      </MaterialAppBarLogo>
-      <ButtonContainer>
-        <MaterialConnectButton onClick={connect}>
-          {connected
-            ? ensName ?? truncateString(accounts[0])
-            : "CONNECT TO WALLET"}
-        </MaterialConnectButton>
-      </ButtonContainer>
+      <AppbarInnerContainer>
+        <MaterialAppBarLogo>
+          <img src={WhoodidLogoImage} alt="Whoodid Logo" width={300} />
+        </MaterialAppBarLogo>
+        <ButtonContainer>
+          <MaterialConnectButton onClick={connect}>
+            {connected
+              ? ensName ?? accounts.length > 0 ? truncateString(accounts[0]) : "CONNECT TO WALLET"
+              : "CONNECT TO WALLET"}
+          </MaterialConnectButton>
+        </ButtonContainer>
+      </AppbarInnerContainer>
     </MaterialAppBar>
   );
 };

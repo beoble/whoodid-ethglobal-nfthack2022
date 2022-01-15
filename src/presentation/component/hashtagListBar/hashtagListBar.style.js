@@ -5,10 +5,14 @@ export const HashtagList = styled(List)`
   &.MuiList-root {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    position: fixed;
+    right: 0;
+    width: 200px;
     height: 100%;
     overflow-Y: scroll;
     padding: 0;
+    margin-top: 72px;
+    background-color: white;
     &::-webkit-scrollbar {
       width: 8px;
     }

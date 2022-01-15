@@ -4,11 +4,11 @@ import {Button} from "@mui/material";
 export const MaterialAppBar = styled.div`
   background: #71b67f;
   box-shadow: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  position: fixed;
   align-items: center;
-  height: 8%;
+  height: 72px;
+  z-index: 999;
+  width: 100%;
 `;
 
 export const MaterialAppBarLogo = styled.div`
@@ -23,7 +23,7 @@ export const MaterialAppBarLogo = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  width: 15%;
+  width: fit-content;
   justify-content: center;
 `
 
@@ -44,3 +44,10 @@ export const MaterialConnectButton = styled(Button)`
     }
   }
 `;
+
+export const AppbarInnerContainer = styled.div`
+  margin: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`

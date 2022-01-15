@@ -21,8 +21,10 @@ import Typography from "@mui/material/Typography";
 
 const PostContainer = styled.div`
   padding: 50px 0;
-  width: 70%;
+  width: 100%;
+  height: fit-content;
   background-color: #00000015;
+  margin: 72px 200px 0px 260px;
 `;
 
 const PostGreenSalad = () => {

@@ -4,9 +4,11 @@ import {List, ListItem, ListItemButton} from "@mui/material";
 export const SocialClubList = styled(List)`
   &.MuiList-root {
     display: flex;
+    position: fixed;
     flex-direction: column;
-    width: 15%;
-    height: 100%;
+    margin-top: 72px;
+    width: 260px;
+    height: calc(100vh - 72px);
     overflow-Y: scroll;
     padding: 0;
     &::-webkit-scrollbar {
