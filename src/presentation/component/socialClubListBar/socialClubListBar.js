@@ -41,6 +41,19 @@ const SocialClubListBar = () => {
             {socialClubCard()}
             {socialClubCard()}
             {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
+            {socialClubCard()}
         </SocialClubList>
 
     );
