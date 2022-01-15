@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
   Avatar,
-  Checkbox,
   ListItemAvatar,
   ListItemButton,
   ListItemText,
@@ -10,28 +9,36 @@ import ImageIcon from "@mui/icons-material/Image";
 import { SocialClubList, SocialClubListItem } from "./socialClubListBar.style";
 
 const SocialClubListBar = () => {
-  const initialValue = [
-    { name: "Whoodid", selected: false },
-    { name: "BoredApeYachtCLub", selected: false },
-    { name: "Cryptoadz", selected: false },
-    { name: "CryptoPunks", selected: false },
+  const [socialClubList, setSocialClubList] = useState([]);
+
+  const initialFetchedValue = [
+    { name: "Whoodid", hooders: 3333, isSelected: false },
+    { name: "BoredApeYachtClub", hooders: 4444,isSelected: false },
+    { name: "Cryptoadz", hooders: 5555,isSelected: false },
+    { name: "CryptoPunks", hooders: 6666, isSelected: false },
   ];
 
-  const [selectedFlag, setSelectedFlag] = useState(initialValue);
+  useEffect(() => {
+    setSocialClubList(initialFetchedValue);
+  }, [])
+
+  const updateSocialClubListSelection = (index) => {
+    let newArr = [...socialClubList];
+    newArr[index] = {
+      ...newArr[index],
+      isSelected: !socialClubList[index].isSelected,
+    };
+    setSocialClubList(newArr);
+  }
 
   const socialClubCard = (socialClub, index) => {
     return (
       <SocialClubListItem
         disablePadding
         onClick={() => {
-          let newArr = [...selectedFlag];
-          newArr[index] = {
-            name: selectedFlag[index].name,
-            selected: !selectedFlag[index].selected,
-          };
-          setSelectedFlag(newArr);
+          updateSocialClubListSelection(index)
         }}
-        selected={selectedFlag[index].selected}
+        selected={socialClub.isSelected}
       >
         <ListItemButton>
           <ListItemAvatar>
@@ -39,7 +46,7 @@ const SocialClubListBar = () => {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={socialClub.name} secondary="3333 Followers" />
+          <ListItemText primary={socialClub.name} secondary={`${socialClub.hooders} Followers`} />
         </ListItemButton>
       </SocialClubListItem>
     );
@@ -47,7 +54,7 @@ const SocialClubListBar = () => {
 
   return (
     <SocialClubList>
-      {selectedFlag.map((socialCLub, index) => {
+      {socialClubList.map((socialCLub, index) => {
         return socialClubCard(socialCLub, index);
       })}
     </SocialClubList>
