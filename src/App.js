@@ -8,6 +8,7 @@ import { TestConnectDiv } from "./presentation/component/Wallet";
 import MainAppBar from "./presentation/component/appbar";
 import { AppContainer, MainHeroContainer } from "./styles/container";
 import SocialClubListBar from "./presentation/component/socialClubListBar";
+import RecipeReviewCard from "./presentation/component/post";
 
 function App() {
   const testOpenSea = async () => {
@@ -30,6 +31,7 @@ function App() {
       <MainHeroContainer>
         <SocialClubListBar />
         {/*<TestConnectDiv />*/}
+        <RecipeReviewCard />
       </MainHeroContainer>
     </AppContainer>
   );
