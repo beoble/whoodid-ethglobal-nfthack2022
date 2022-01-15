@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Web3 from "web3";
 import {} from "./sdk/metamask";
 import ServerDataSource from "./sdk/api";
-import { TestConnectDiv } from "./presentation/component/Wallet";
 import MainAppBar from "./presentation/component/appbar";
 import { AppContainer, MainHeroContainer } from "./styles/container";
 import SocialClubListBar from "./presentation/component/socialClubListBar";
-import RecipeReviewCard from "./presentation/component/post";
+import styled from "styled-components";
+import Post from "./presentation/component/post";
+
+const PostContainer = styled.div`
+  padding: 50px 0;
+  width: 100%;
+`;
 
 function App() {
   const testOpenSea = async () => {
@@ -31,7 +34,9 @@ function App() {
       <MainHeroContainer>
         <SocialClubListBar />
         {/*<TestConnectDiv />*/}
-        <RecipeReviewCard />
+        <PostContainer>
+          <Post />
+        </PostContainer>
       </MainHeroContainer>
     </AppContainer>
   );

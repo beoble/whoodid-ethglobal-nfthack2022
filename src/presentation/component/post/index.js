@@ -21,7 +21,16 @@ const ExpandMore = styled(IconButton)`
   transition: transform 1s;
 `;
 
-export default function RecipeReviewCard() {
+const PostCard = styled(Card)`
+  box-sizing: border-box;
+  height: fit-content;
+  max-width: 500px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+export default function Post() {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -29,7 +38,7 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <PostCard>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -43,20 +52,22 @@ export default function RecipeReviewCard() {
         }
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
+        sx={{ padding: "16px 0" }}
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
-      <CardContent>
+
+      <CardContent sx={{ padding: 0 }}>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.
         </Typography>
       </CardContent>
+      <CardMedia
+        component="img"
+        height="194"
+        image="/static/images/cards/paella.jpg"
+        alt="Paella dish"
+      />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -104,6 +115,6 @@ export default function RecipeReviewCard() {
           </Typography>
         </CardContent>
       </Collapse>
-    </Card>
+    </PostCard>
   );
 }
