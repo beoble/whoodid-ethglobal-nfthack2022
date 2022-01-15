@@ -32,7 +32,14 @@ const PostCard = styled(Card)`
   min-width: 500px;
 `;
 
-export default function Post({ profile, name, isVerified, content, image }) {
+export default function Post({
+  profile,
+  name,
+  isVerified,
+  content,
+  image,
+  nftGroup = "Whoodid",
+}) {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -63,7 +70,7 @@ export default function Post({ profile, name, isVerified, content, image }) {
             )}
           </div>
         }
-        subheader="January 15, 2022"
+        subheader={"written in " + nftGroup}
         sx={{ padding: "0 0 16px 0" }}
       />
 

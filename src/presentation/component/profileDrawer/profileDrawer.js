@@ -51,7 +51,7 @@ const ProfileDrawer = ({
           </div>
         </ProfileDrawerInnerContainer>
       ) : (
-        "Please Connect To Wallet"
+        <div style={{ margin: "auto" }}>Please Connect To Wallet</div>
       )}
     </MaterialProfileDrawer>
   );

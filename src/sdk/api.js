@@ -59,10 +59,15 @@ export default class ServerDataSource {
 
   async getPriceCovalent(address) {
     let param = {
-        "quote-currency": "USD", "format": "json",
-        "key": "ckey_72b4f4d669a843b4bc73df805e8"
+      "quote-currency": "USD",
+      format: "json",
+      key: "ckey_72b4f4d669a843b4bc73df805e8",
     };
-    console.log(`${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`)
-    return this.getRestApiData(`${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`, {}, param)
+    console.log(`${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`);
+    return this.getRestApiData(
+      `${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`,
+      {},
+      param
+    );
   }
 }

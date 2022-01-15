@@ -15,8 +15,9 @@ import {
   PostMelvin,
   PostShipDuck,
 } from "./Posts";
-import { testOpenSea } from "./sdk/whoodid_sdk";
+import { testOpenSea, WhoodidSdk } from "./sdk/whoodid_sdk";
 import { truncateString } from "./util";
+import { TrapTrap } from "./constants";
 
 const PostContainer = styled.div`
   flex-direction: column;
@@ -58,10 +59,11 @@ function App() {
   const [groups, setGroups] = useState([NFTGroup.Whoodid]);
   const [hashtags, setHashtags] = useState([HashTags]);
   const groupValue = { groups, setGroups };
+  const sdk = new WhoodidSdk();
 
   useEffect(() => {
-    testOpenSea();
-    console.log(groups);
+    //testOpenSea();
+    sdk.testOpenSea();
   }, []);
 
   return (
