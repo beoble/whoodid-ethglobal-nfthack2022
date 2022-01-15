@@ -28,7 +28,6 @@ export const MaterialConnectButton = styled(Button)`
     display: flex;
     font-size: 15px;
     padding: 10px;
-    margin: 10px 0;
     color: white;
     background-color: black;
     border: 2px solid black;
