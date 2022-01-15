@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Drawer } from "@mui/material";
+import {Drawer, ImageList} from "@mui/material";
 
 export const MaterialProfileDrawer = styled(Drawer)`
   &.MuiDrawer-root {
@@ -30,4 +30,9 @@ export const MainNftProfileImage = styled.img`
   height: 250px;
   width: 250px;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`
+
+export const OwnedNftImageList = styled(ImageList)`
+  
 `

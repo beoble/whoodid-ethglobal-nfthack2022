@@ -17,7 +17,10 @@ import PersonIcon from "@mui/icons-material/Person";
 const MainAppBar = () => {
   const { connect, connected, accounts, ensNames } = useWallet();
   const [ensName, setEnsName] = useState();
-  const [isProfileDrawerOpen, setIsProfileDrawer] = useState(false);
+  const [isProfileDrawerOpen, setIsProfileDrawerOpen] = useState(false);
+  const [currentNftProfile, setCurrentNftProfile] = useState(
+    NFTProfileSampleImage
+  );
 
   useEffect(() => {
     if (ensNames) if (ensNames.length > 0) setEnsName(ensNames[0]);
@@ -39,9 +42,9 @@ const MainAppBar = () => {
           </MaterialConnectButton>
           {connected ? (
             <ProfileImage
-              src={NFTProfileSampleImage}
+              src={currentNftProfile}
               alt="NFT Profile Image"
-              onClick={() => setIsProfileDrawer(true)}
+              onClick={() => setIsProfileDrawerOpen(true)}
             />
           ) : (
             <PersonIcon
@@ -55,14 +58,17 @@ const MainAppBar = () => {
                 padding: "5px",
                 cursor: "pointer",
               }}
-              onClick={() => setIsProfileDrawer(true)}
+              onClick={() => setIsProfileDrawerOpen(true)}
             />
           )}
         </ButtonContainer>
       </AppbarInnerContainer>
       <ProfileDrawer
         isProfileDrawerOpen={isProfileDrawerOpen}
-        setIsProfileDrawer={setIsProfileDrawer}
+        setIsProfileDrawerOpen={setIsProfileDrawerOpen}
+        currentNftProfile={currentNftProfile}
+        setCurrentNftProfile={setCurrentNftProfile}
+        followingHashtags={['BEER', 'CRYPTO', 'DOGECOIN', 'BEER', 'CRYPTO', 'DOGECOIN']}
       />
     </MaterialAppBar>
   );
