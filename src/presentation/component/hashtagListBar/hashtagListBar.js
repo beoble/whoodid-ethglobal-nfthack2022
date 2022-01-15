@@ -89,7 +89,6 @@ const HashtagListBar = () => {
           margin: "10px auto",
           position: "relative",
           zIndex: "10",
-          border: "1px solid red",
         }}
       />
       {hashtagList.map((hashtag, index) => {
