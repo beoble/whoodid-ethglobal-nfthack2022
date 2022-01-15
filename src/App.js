@@ -200,7 +200,6 @@ function App() {
       <MainAppBar />
       <MainHeroContainer>
         <SocialClubListBar />
-        <HashtagListBar />
         <PostContainer>
           <PostHeader>
             <span style={{alignItems: "center", display: "flex", fontSize: "25px"}}>{groups.toString()}</span>
@@ -213,6 +212,7 @@ function App() {
             <PostKryptonium />
           </Posts>
         </PostContainer>
+        <HashtagListBar />
       </MainHeroContainer>
     </AppContainer>
   );
