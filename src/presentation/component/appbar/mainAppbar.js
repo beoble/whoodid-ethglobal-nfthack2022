@@ -44,9 +44,19 @@ const MainAppBar = () => {
               onClick={() => setIsProfileDrawer(true)}
             />
           ) : (
-              <PersonIcon
-                  style={{ width: '40px', height: '40px', background: 'black', color: 'white', borderRadius: '50%', marginLeft: '10px', padding: '5px'}}
-              />
+            <PersonIcon
+              style={{
+                width: "40px",
+                height: "40px",
+                background: "black",
+                color: "white",
+                borderRadius: "50%",
+                marginLeft: "10px",
+                padding: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => setIsProfileDrawer(true)}
+            />
           )}
         </ButtonContainer>
       </AppbarInnerContainer>
