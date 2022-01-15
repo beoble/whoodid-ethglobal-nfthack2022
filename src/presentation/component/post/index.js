@@ -58,7 +58,7 @@ export default function Post({ profile, name, isVerified, content, image }) {
             {isVerified && (
               <img
                 src={OpenSeaVerified}
-                style={{ width: 20, heigh: 20, margin: "0 5px" }}
+                style={{ width: 20, margin: "0 5px" }}
               />
             )}
           </div>

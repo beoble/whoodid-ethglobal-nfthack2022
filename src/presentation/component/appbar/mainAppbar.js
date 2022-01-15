@@ -12,6 +12,7 @@ import useWallet from "../../../hook/useWallet";
 import { truncateString } from "../../../util";
 import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import ProfileDrawer from "../profileDrawer";
+import PersonIcon from "@mui/icons-material/Person";
 
 const MainAppBar = () => {
   const { connect, connected, accounts, ensNames } = useWallet();
@@ -36,10 +37,23 @@ const MainAppBar = () => {
                 : "CONNECT TO WALLET"
               : "CONNECT TO WALLET"}
           </MaterialConnectButton>
-          <ProfileImage src={NFTProfileSampleImage} alt="NFT Profile Image" onClick={() => setIsProfileDrawer(true)} />
+          {connected ? (
+            <ProfileImage
+              src={NFTProfileSampleImage}
+              alt="NFT Profile Image"
+              onClick={() => setIsProfileDrawer(true)}
+            />
+          ) : (
+              <PersonIcon
+                  style={{ width: '40px', height: '40px', background: 'black', color: 'white', borderRadius: '50%', marginLeft: '10px', padding: '5px'}}
+              />
+          )}
         </ButtonContainer>
       </AppbarInnerContainer>
-      <ProfileDrawer isProfileDrawerOpen={isProfileDrawerOpen} setIsProfileDrawer={setIsProfileDrawer} />
+      <ProfileDrawer
+        isProfileDrawerOpen={isProfileDrawerOpen}
+        setIsProfileDrawer={setIsProfileDrawer}
+      />
     </MaterialAppBar>
   );
 };
