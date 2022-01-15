@@ -11,6 +11,7 @@ import Post from "./presentation/component/post";
 const PostContainer = styled.div`
   padding: 50px 0;
   width: 100%;
+  background-color: #00000015;
 `;
 
 function App() {

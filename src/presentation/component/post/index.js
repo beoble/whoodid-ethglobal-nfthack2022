@@ -10,8 +10,9 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
@@ -28,9 +29,10 @@ const PostCard = styled(Card)`
   width: fit-content;
   margin: 0 auto;
   padding: 20px;
+  min-width: 500px;
 `;
 
-export default function Post() {
+export default function Post({ profile, name, isVerified, content, image }) {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -38,7 +40,7 @@ export default function Post() {
   };
 
   return (
-    <PostCard>
+    <PostCard sx={{ borderRadius: "10px" }} elevation={1}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -50,16 +52,17 @@ export default function Post() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={name}
+        subheader="January 15, 2022"
         sx={{ padding: "16px 0" }}
       />
 
       <CardContent sx={{ padding: 0 }}>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+        <Typography variant="body1" color="text.secondary">
+          Hi, I got another{" "}
+          <Typography display="inline" variant="body1" color="#00A0FA">
+            #coolcat
+          </Typography>
         </Typography>
       </CardContent>
       <CardMedia
@@ -68,12 +71,12 @@ export default function Post() {
         image="/static/images/cards/paella.jpg"
         alt="Paella dish"
       />
-      <CardActions disableSpacing>
+      <CardActions disableSpacing sx={{ justifyContent: "space-between" }}>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <ThumbUpOutlinedIcon />
         </IconButton>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <ChatBubbleOutlineOutlinedIcon />
         </IconButton>
         <ExpandMore
           expand={expanded}
@@ -81,7 +84,7 @@ export default function Post() {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <ShareOutlinedIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
