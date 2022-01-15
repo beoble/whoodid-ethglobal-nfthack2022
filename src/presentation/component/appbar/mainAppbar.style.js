@@ -1,17 +1,15 @@
 import styled from "styled-components";
-import { AppBar, Button } from "@mui/material";
+import {Button} from "@mui/material";
 
-export const MaterialAppBar = styled(AppBar)`
-  &.MuiAppBar-root {
-    background: #71b67f;
-    box-shadow: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 100px;
-    position: static; //TODO: Varies depending on the scroll setup
-  }
+export const MaterialAppBar = styled.div`
+  background: #71b67f;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  height: 8%;
 `;
 
 export const MaterialAppBarLogo = styled.div`
@@ -31,12 +29,12 @@ export const MaterialConnectButton = styled(Button)`
     margin: 10px 0;
     color: white;
     background-color: black;
-    border: 2px solid black;
+    // border: 2px solid black;
     border-radius: 30px;
 
     &:hover {
       background-color: black;
-      border: 2px solid #f0b90b;
+      // border: 2px solid #f0b90b;
       color: #f0b90b;
       transition: background-color 0.5s ease;
     }

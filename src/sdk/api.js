@@ -18,7 +18,7 @@ export default class ServerDataSource {
       params: param,
     };
     return this.tryRestApi(async () => {
-      await axios.get(path || "", config);
+      return await axios.get(path || "", config);
     });
   }
 
@@ -44,7 +44,7 @@ export default class ServerDataSource {
     let header = { Authorization: "1bc8affc-83d5-422b-a66b-4e2b0456fc53" };
     return this.getRestApiData(
       `${Path.NFTPORT}${Path.NFTPORT_ACCOUNTS}${address}`,
-      (header = header)
+      header
     );
   }
 
@@ -55,5 +55,14 @@ export default class ServerDataSource {
       {},
       param
     );
+  }
+
+  async getPriceCovalent(address) {
+    let param = {
+        "quote-currency": "USD", "format": "json",
+        "key": "ckey_72b4f4d669a843b4bc73df805e8"
+    };
+    console.log(`${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`)
+    return this.getRestApiData(`${Path.COVALENT}${Path.COVALENT_PRICING}1/USD/${address}/`, {}, param)
   }
 }
