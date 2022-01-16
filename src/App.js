@@ -56,7 +56,7 @@ const PostHeader = styled.div`
   width: inherit;
   max-width: inherit;
   height: 60px;
-  background-color: white;
+  background-color: #d7fddf;
   padding: 10px 20px;
   z-index: 900;
   vertical-align: middle;
