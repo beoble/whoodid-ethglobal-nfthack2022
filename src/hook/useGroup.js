@@ -14,7 +14,7 @@ export const NFTGroup = {
   CoolCats: "CoolCats",
   Mekaverse: "MekaVerse",
   MekaverseFactory: "MekaVerse Factory",
-  ScatteredShoeuziVol1: "Scattered shoeuzi Vol.1",
+  ScatteredShoeuziVol1: "Scattered shoeuzi Vol. 1",
   SecretSocietyOfWhales: "Secret Society of Whales",
   Rarible: "Rarible",
 };

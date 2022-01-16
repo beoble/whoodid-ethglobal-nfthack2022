@@ -58,6 +58,7 @@ export class WhoodidSdk {
 
   getCollectibleListByAddress = async (address) => {
     let NFTs = await this.getOpenSeaCollectionsByAddress(address);
+    console.log(NFTs.map((nft) => nft.name));
     return NFTs.map((nft) => {
       return { name: nft.name, count: nft.stats.count };
     });
