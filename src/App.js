@@ -45,7 +45,7 @@ const PostContainer = styled.div`
   height: fit-content;
   min-height: 100%;
   background-color: #00000015;
-  margin: 72px 250px 0px 260px;
+  margin: 72px 250px 0px 270px;
   padding: 0px 2px;
 `;
 
