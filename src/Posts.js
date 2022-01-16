@@ -2,15 +2,47 @@ import React, { useState, useEffect } from "react";
 import Post from "./presentation/component/post";
 import Coolcat279 from "./assets/nft/coolcat279.png";
 import Coolcat7795 from "./assets/nft/coolcat7795.png";
+import Coolcat9816 from "./assets/nft/coolcat9816.png";
 import MelvinProfile from "./assets/nft/phantabear1845.png";
 import GurrenLagann from "./assets/gurrenlagann.png";
 import Meka6242 from "./assets/nft/meka6242.png";
+import Meka1784 from "./assets/nft/meka1784.png";
+import Meka1922 from "./assets/nft/meka1922.png";
+import Meka8597 from "./assets/nft/meka8597.png";
+import CryptoPunk3100 from "./assets/nft/cryptopunk3100.png";
+import CryptoPunk5081 from "./assets/nft/cryptopunk5081.png";
+import CryptoPunk7804 from "./assets/nft/cryptopunk7804.png";
+import CryptoPunk9998 from "./assets/nft/cryptopunk9998.png";
 import Hood512 from "./assets/nft/hood512.png";
+import Hood2294 from "./assets/nft/hood2294.png";
+import Hood7171 from "./assets/nft/hood7171.png";
+import Hood8868 from "./assets/nft/hood8868.png";
+import Hood9476 from "./assets/nft/hood9476.png";
 import F10Klaytn from "./assets/f10xklaytn.png";
 import Doodle662 from "./assets/nft/doodle316.png";
+import PhantaBear1845 from "./assets/nft/phantabear1845.png";
+import PhantaBear4450 from "./assets/nft/phantabear4450.png";
+import PhantaBear9999 from "./assets/nft/phantabear9999.jpg";
+import Shoeuzi851 from "./assets/nft/shoeuzi851.png";
+import Shoeuzi841 from "./assets/nft/shoeuzi841.png";
+import Vitalik000 from "./assets/nft/vitalik.jpg";
+import Binance from "./assets/nft/binance.png";
+
 import VaccinePassportsMap from "./assets/posts/vitalik-post.png";
+import AespaImage from "./assets/posts/aespa.jpg";
+import BinanceHiringImage from "./assets/posts/binance-hiring.jpg";
+import BlueWhaleImage from "./assets/posts/blue-whale.jpg";
+import CatsImage from "./assets/posts/cats.jpg";
+import CryptoPunksImage from "./assets/posts/cryptopunks.jpeg";
+import DogsImage from "./assets/posts/dogs.jpg";
+import GodOfWarImage from "./assets/posts/god-of-war.jpg";
+import ReadyPlayerOneImage from "./assets/posts/ready-player-one.jpg";
+import SummerWarsImage from "./assets/posts/summer-wars.jpg";
+import TaigaImage from "./assets/posts/taiga.png";
+import NftImage from "./assets/posts/nft-art.jpg";
 
 import Typography from "@mui/material/Typography";
+import { NFTGroup } from "./hook/useGroup";
 
 export const PostGreenSalad = () => {
   const Content = () => {
@@ -30,6 +62,7 @@ export const PostGreenSalad = () => {
       isVerified
       content={<Content />}
       image={Coolcat7795}
+      nftGroup={NFTGroup.Whoodid}
     />
   );
 };
@@ -51,6 +84,7 @@ export const PostKryptonium = () => {
       name="kryptonium.eth"
       isVerified
       content={<Content />}
+      nftGroup={NFTGroup.Whoodid}
     />
   );
 };
@@ -77,6 +111,7 @@ export const PostShipDuck = () => {
       content={<Content />}
       profile={Meka6242}
       image={GurrenLagann}
+      nftGroup={NFTGroup.Mekaverse}
     />
   );
 };
@@ -115,6 +150,7 @@ export const PostMelvin = () => {
       profile={MelvinProfile}
       content={<Content />}
       image={F10Klaytn}
+      nftGroup={NFTGroup.Whoodid}
     />
   );
 };
@@ -137,7 +173,14 @@ export const PostHoodie = () => {
       </Typography>
     );
   };
-  return <Post name="angry squid" profile={Hood512} content={<Content />} />;
+  return (
+    <Post
+      name="angry squid"
+      profile={CryptoPunk7804}
+      content={<Content />}
+      nftGroup={NFTGroup.Whoodid}
+    />
+  );
 };
 
 export const PostFactAboutWhale = () => {
@@ -158,7 +201,16 @@ export const PostFactAboutWhale = () => {
       </Typography>
     );
   };
-  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+  return (
+    <Post
+      name="whalelover.eth"
+      profile={Coolcat9816}
+      isVerified
+      content={<Content />}
+      image={BlueWhaleImage}
+      nftGroup={NFTGroup.SecretSocietyOfWhales}
+    />
+  );
 };
 
 export const PostNftArt = () => {
@@ -178,7 +230,7 @@ export const PostNftArt = () => {
       </Typography>
     );
   };
-  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+  return <Post name="dolphinia" profile={PhantaBear9999} content={<Content />} image={NftImage} />;
 };
 
 export const PostStayStrong = () => {
@@ -192,7 +244,7 @@ export const PostStayStrong = () => {
       </Typography>
     );
   };
-  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+  return <Post name="Crypto Believer" profile={CryptoPunk5081} content={<Content />} />;
 };
 
 export const PostNftProjectAd = () => {
@@ -218,7 +270,16 @@ export const PostNftProjectAd = () => {
       </Typography>
     );
   };
-  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+  return (
+    <Post
+      name="crytopunks2077.eth"
+      isVerified
+      profile={CryptoPunk9998}
+      content={<Content />}
+      image={CryptoPunksImage}
+      nftGroup={NFTGroup.Rarible}
+    />
+  );
 };
 
 export const PostVitalik = () => {
@@ -239,7 +300,7 @@ export const PostVitalik = () => {
     <Post
       name="vitalik.eth"
       isVerified
-      profile={Hood512}
+      profile={Vitalik000}
       content={<Content />}
       image={VaccinePassportsMap}
     />
@@ -267,8 +328,10 @@ export const PostOhDuck = () => {
     <Post
       name="ohduck.eth"
       isVerified
-      profile={Hood512}
+      profile={Meka8597}
       content={<Content />}
+      image={TaigaImage}
+      nftGroup={NFTGroup.Mekaverse}
     />
   );
 };
@@ -291,7 +354,15 @@ export const PostReadyPlayerOne = () => {
       </Typography>
     );
   };
-  return <Post name="Oasis" profile={Hood512} content={<Content />} />;
+  return (
+    <Post
+      name="Oasis"
+      profile={Hood2294}
+      content={<Content />}
+      image={ReadyPlayerOneImage}
+      nftGroup={NFTGroup.Mekaverse}
+    />
+  );
 };
 
 export const PostSummerWars = () => {
@@ -315,7 +386,7 @@ export const PostSummerWars = () => {
       </Typography>
     );
   };
-  return <Post name="Oasis" profile={Hood512} content={<Content />} />;
+  return <Post name="metanime.eth" profile={Meka1784} isVerified content={<Content />} image={SummerWarsImage} nftGroup={NFTGroup.Mekaverse}/>;
 };
 
 export const PostHiringAd = () => {
@@ -343,8 +414,10 @@ export const PostHiringAd = () => {
     <Post
       name="binance.eth"
       isVerified
-      profile={Hood512}
+      profile={Binance}
       content={<Content />}
+      image={BinanceHiringImage}
+      nftGroup={NFTGroup.Rarible}
     />
   );
 };
@@ -353,7 +426,7 @@ export const PostDog = () => {
   const Content = () => {
     return (
       <Typography variant="body1" color="text.secondary">
-        These are my Doge and Coin!
+        These are my Doge and Coin!{" "}
         <Typography display="inline" variant="body1" color="#00A0FA">
           #DogeCoin{" "}
         </Typography>
@@ -368,10 +441,12 @@ export const PostDog = () => {
   };
   return (
     <Post
-      name="binance.eth"
+      name="benedictK.eth"
       isVerified
-      profile={Hood512}
+      profile={PhantaBear4450}
       content={<Content />}
+      image={DogsImage}
+      nftGroup={NFTGroup.SecretSocietyOfWhales}
     />
   );
 };
@@ -384,17 +459,17 @@ export const PostCat = () => {
         <Typography display="inline" variant="body1" color="#00A0FA">
           #cat{" "}
         </Typography>
-          <Typography display="inline" variant="body1" color="text.secondary">
-              picture - my cousin named them{" "}
-          </Typography>
-          <Typography display="inline" variant="body1" color="#00A0FA">
-              #Shiba{" "}
-          </Typography>
-          and{" "}
-          <Typography display="inline" variant="body1" color="#00A0FA">
-              #Coin{" "}
-          </Typography>
-          😂😂😂
+        <Typography display="inline" variant="body1" color="text.secondary">
+          picture - my cousin named them{" "}
+        </Typography>
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #Shiba{" "}
+        </Typography>
+        and{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #Coin{" "}
+        </Typography>
+        😂😂😂
         <Typography variant="body1" color="#00A0FA">
           #Animals #cat #kitten #ShibaCoin
         </Typography>
@@ -403,10 +478,11 @@ export const PostCat = () => {
   };
   return (
     <Post
-      name="binance.eth"
-      isVerified
-      profile={Hood512}
+      name="Awesome Derrick"
+      profile={Hood8868}
       content={<Content />}
+      image={CatsImage}
+      nftGroup={NFTGroup.SecretSocietyOfWhales}
     />
   );
 };
@@ -429,86 +505,89 @@ export const PostAespa = () => {
   return (
     <Post
       name="winter_next_level"
-      isVerified
-      profile={Hood512}
+      profile={Hood9476}
       content={<Content />}
+      image={AespaImage}
+      nftGroup={NFTGroup.Rarible}
     />
   );
 };
 
 export const PostCoinQuestion = () => {
-    const Content = () => {
-        return (
-            <Typography variant="body1" color="text.secondary">
-                anyone heard of{" "}
-                <Typography display="inline" variant="body1" color="#00A0FA">
-                    #KimchiCoin
-                </Typography>
-                ?{" "}
-                <Typography variant="body1" color="text.secondary">
-                    worth investing or just another shit coin?
-                </Typography>
-                <Typography variant="body1" color="#00A0FA">
-                    #KimchiCoin #Investment
-                </Typography>
-            </Typography>
-        );
-    };
+  const Content = () => {
     return (
-        <Post
-            name="binance.eth"
-            isVerified
-            profile={Hood512}
-            content={<Content />}
-        />
+      <Typography variant="body1" color="text.secondary">
+        anyone heard of{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #KimchiCoin
+        </Typography>
+        ?{" "}
+        <Typography variant="body1" color="text.secondary">
+          worth investing or just another shit coin?
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #KimchiCoin #Investment #Coin
+        </Typography>
+      </Typography>
     );
+  };
+  return (
+    <Post
+      name="astronaut9342"
+      profile={Shoeuzi841}
+      content={<Content />}
+      nftGroup={NFTGroup.ScatteredShoeuziVol1}
+    />
+  );
 };
 
 export const PostGodOfWar = () => {
-    const Content = () => {
-        return (
-            <Typography variant="body1" color="text.secondary">
-                Damn!!!{" "}
-                <Typography display="inline" variant="body1" color="#00A0FA">
-                    #GodOfWar{" "}
-                </Typography>
-                finally available for PC!!!{" "}
-                <Typography variant="body1" color="text.secondary">
-                    LOVE YOU KRATOS!!!
-                </Typography>
-                <Typography variant="body1" color="#00A0FA">
-                    #Game #GodOfWar
-                </Typography>
-            </Typography>
-        );
-    };
+  const Content = () => {
     return (
-        <Post
-            name="binance.eth"
-            isVerified
-            profile={Hood512}
-            content={<Content />}
-        />
+      <Typography variant="body1" color="text.secondary">
+        Damn!!!{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #GodOfWar{" "}
+        </Typography>
+        finally available for PC!!!{" "}
+        <Typography variant="body1" color="text.secondary">
+          LOVE YOU KRATOS!!!
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Game #GodOfWar
+        </Typography>
+      </Typography>
     );
+  };
+  return (
+    <Post
+      name="GosuGamer.eth"
+      isVerified
+      profile={Shoeuzi851}
+      content={<Content />}
+      image={GodOfWarImage}
+      nftGroup={NFTGroup.ScatteredShoeuziVol1}
+    />
+  );
 };
 
 export const PostTeen = () => {
-    const Content = () => {
-        return (
-            <Typography variant="body1" color="text.secondary">
-                too much homework. fml.{" "}
-                <Typography variant="body1" color="#00A0FA">
-                    #SchoolLife #fml
-                </Typography>
-            </Typography>
-        );
-    };
+  const Content = () => {
     return (
-        <Post
-            name="binance.eth"
-            isVerified
-            profile={Hood512}
-            content={<Content />}
-        />
+      <Typography variant="body1" color="text.secondary">
+        too much homework. fml.{" "}
+        <Typography variant="body1" color="#00A0FA">
+          #SchoolLife #fml
+        </Typography>
+      </Typography>
     );
+  };
+  return (
+    <Post
+      name="blackwhite hacker"
+      profile={Hood7171}
+      content={<Content />}
+      nftGroup={NFTGroup.MekaverseFactory}
+    />
+  );
 };
