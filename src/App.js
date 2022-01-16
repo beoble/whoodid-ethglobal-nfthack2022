@@ -16,7 +16,7 @@ import {
   PostShipDuck,
 } from "./Posts";
 import { WhoodidSdk } from "./sdk/whoodid_sdk";
-import { truncateString } from "./util";
+import { truncateString, converStringArrayToString } from "./util";
 import { GroupGontext } from "./contexts/groupContext";
 import { HashtagContext } from "./contexts/hashtagContext";
 import { WhoodidContext } from "./contexts/whoodidContext";
@@ -71,7 +71,7 @@ function App() {
   return (
     <GroupGontext.Provider value={groupValue}>
       <HashtagContext.Provider value={hashtagValue}>
-        <WhoodidContext.Provider value={sdk}>
+        <WhoodidContext.Provider value={{ sdk }}>
           <AppContainer>
             <MainAppBar />
             <MainHeroContainer>
@@ -85,12 +85,7 @@ function App() {
                       fontSize: "25px",
                     }}
                   >
-                    {truncateString(
-                      groups.toString().replace(/,/g, ", "),
-                      35,
-                      30,
-                      0
-                    )}
+                    {converStringArrayToString(groups)}
                   </span>
                 </PostHeader>
                 <Posts>

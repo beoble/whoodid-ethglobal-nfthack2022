@@ -43,16 +43,12 @@ export class WhoodidSdk {
 
   getNFTByAddress = async (address) => {
     let param = { owner: address };
-    return await (
-      await this.getRestApi(Path.OPENSEA_ASSETS, param)
-    ).data.assets;
+    return (await this.getRestApi(Path.OPENSEA_ASSETS, param)).data.assets;
   };
 
   getOpenSeaCollectionsByAddress = async (address) => {
-    let param = { owner: address };
-    return await (
-      await this.getRestApi(Path.OPENSEA_COLLECTIONS, param)
-    ).data.collections;
+    let param = { asset_owner: address };
+    return (await this.getRestApi(Path.OPENSEA_COLLECTIONS, param)).data;
   };
 
   getNFTImageUrlsByAddresss = async (address) => {
@@ -61,7 +57,9 @@ export class WhoodidSdk {
   };
 
   getCollectibleListByAddress = async (address) => {
-    let NFTs = await this.getNFTByAddress(address);
-    return NFTs.map((nft) => nft.collection.name);
+    let NFTs = await this.getOpenSeaCollectionsByAddress(address);
+    return NFTs.map((nft) => {
+      return { name: nft.name, count: nft.stats.count };
+    });
   };
 }

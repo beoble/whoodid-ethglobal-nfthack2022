@@ -1,3 +1,5 @@
 import { createContext } from "react";
 
-export const WhoodidContext = createContext();
+export const WhoodidContext = createContext({
+  sdk: {},
+});

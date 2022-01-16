@@ -1,1 +1,1 @@
-export { truncateString } from "./stringUtil";
+export { truncateString, converStringArrayToString } from "./stringUtil";

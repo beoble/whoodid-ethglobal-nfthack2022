@@ -8,15 +8,15 @@ import {
 import ImageIcon from "@mui/icons-material/Image";
 import { SocialClubList, SocialClubListItem } from "./socialClubListBar.style";
 import useGroup from "../../../hook/useGroup";
+import useWallet from "../../../hook/useWallet";
+import useWhoodid from "../../../hook/useWhoodid";
+import { TrapTrap } from "../../../constants";
 
 const SocialClubListBar = () => {
   const [socialClubList, setSocialClubList] = useState([]);
 
   const initialFetchedValue = [
     { name: "Whoodid", hooders: 3333, isSelected: true },
-    { name: "BoredApeYachtClub", hooders: 4444, isSelected: false },
-    { name: "Cryptoadz", hooders: 5555, isSelected: false },
-    { name: "CryptoPunks", hooders: 6666, isSelected: false },
   ];
 
   useEffect(() => {
@@ -33,6 +33,23 @@ const SocialClubListBar = () => {
   };
 
   const { setGroups } = useGroup();
+  const { connected, accounts } = useWallet();
+  const { getCollectibleList } = useWhoodid();
+
+  useEffect(() => {
+    const getCollectibleListAndSet = async () => {
+      let collectibles = await getCollectibleList(TrapTrap);
+      let socialClubs = collectibles.map((collect) => {
+        return {
+          name: collect.name,
+          hooders: collect.count,
+          isSelected: false,
+        };
+      });
+      setSocialClubList([...initialFetchedValue, ...socialClubs]);
+    };
+    getCollectibleListAndSet();
+  }, [connected]);
 
   useEffect(() => {
     let selected = socialClubList
@@ -59,7 +76,7 @@ const SocialClubListBar = () => {
           </ListItemAvatar>
           <ListItemText
             primary={socialClub.name}
-            secondary={`${socialClub.hooders} Followers`}
+            secondary={`${socialClub.hooders} holders`}
           />
         </ListItemButton>
       </SocialClubListItem>

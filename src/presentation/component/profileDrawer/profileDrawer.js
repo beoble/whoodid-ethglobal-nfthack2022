@@ -6,10 +6,11 @@ import {
   OwnedNftImageList,
   ProfileDrawerInnerContainer,
 } from "./profileDrawer.style";
-import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import Typography from "@mui/material/Typography";
 import OpenSeaVerified from "../../../assets/opensea_verified.png";
 import { ImageListItem } from "@mui/material";
+import useWhoodid from "../../../hook/useWhoodid";
+import { TrapTrap } from "../../../constants";
 
 const ProfileDrawer = ({
   isProfileDrawerOpen,
@@ -21,15 +22,34 @@ const ProfileDrawer = ({
   nftCollection,
   followingHashtags,
 }) => {
-  // Mock
-  name = "Kryptonium.eth";
-  isVerified = true;
-  nftCollection = [
-    "https://lh3.googleusercontent.com/Qls8qYF7Gbgev3ceQXo5wJ_sShclxl7MwWkpmQ_aRBC3qBLjawZJ17_GT45GzO1kUEiqRpOTUrPR4sLF-f0I9IiUywuqEkM5JAP5",
-    "https://lh3.googleusercontent.com/fLMivNtc1uMXfaC437UBu0EWxXqdg4nA8jBXQ9tv4ieTjbJJ8jPgZDsddW2U8LvdmJpFPU7PF3ljk1lvtFzwUDpHpjpVx8AEMvzY",
-  ];
-  let mockConnected = true;
+  const [profile, setProfile] = useState({
+    name: "Kryptonium.eth",
+    description: "I am a lonely white wolf - interested in women",
+    isVerified: true,
+    nftCollection: [
+      "https://lh3.googleusercontent.com/Qls8qYF7Gbgev3ceQXo5wJ_sShclxl7MwWkpmQ_aRBC3qBLjawZJ17_GT45GzO1kUEiqRpOTUrPR4sLF-f0I9IiUywuqEkM5JAP5",
+      "https://lh3.googleusercontent.com/fLMivNtc1uMXfaC437UBu0EWxXqdg4nA8jBXQ9tv4ieTjbJJ8jPgZDsddW2U8LvdmJpFPU7PF3ljk1lvtFzwUDpHpjpVx8AEMvzY",
+    ],
+  });
+
   const { connected, accounts } = useWallet();
+  const { getNFTImageUrl } = useWhoodid();
+
+  useEffect(() => {
+    if (accounts) {
+      if (accounts[0]) console.log(accounts[0]);
+    }
+  }, [accounts]);
+
+  useEffect(() => {
+    const setProfileWithAddress = async () => {
+      let images = await getNFTImageUrl(TrapTrap);
+      setProfile({ ...profile, nftCollection: images });
+    };
+    if (connected) {
+      setProfileWithAddress();
+    }
+  }, [connected]);
 
   return (
     <MaterialProfileDrawer
@@ -48,9 +68,9 @@ const ProfileDrawer = ({
             }}
           >
             <Typography variant="h5" color="text.primary">
-              {name}
+              {profile.name}
             </Typography>
-            {isVerified && (
+            {profile.isVerified && (
               <img
                 src={OpenSeaVerified}
                 alt="OpenSea verified mark"
@@ -63,7 +83,7 @@ const ProfileDrawer = ({
             color="text.primary"
             sx={{ display: "flex", margin: "10px", alignItems: "center" }}
           >
-            I am a lonely white wolf - interested in women
+            {profile.description}
           </Typography>
           <Typography
             variant="body1"
@@ -98,7 +118,7 @@ const ProfileDrawer = ({
             )}
           </Typography>
           <OwnedNftImageList sx={{ width: 400 }} cols={3} rowHeight={400 / 3}>
-            {nftCollection.map((ownedNft, index) => {
+            {profile.nftCollection.map((ownedNft, index) => {
               return (
                 <ImageListItem key={index} sx={{ cursor: "pointer" }}>
                   <img
