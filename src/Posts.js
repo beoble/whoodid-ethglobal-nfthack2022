@@ -83,10 +83,11 @@ export const PostKryptonium = () => {
   return (
     <Post
       profile={Doodle662}
-      name="kryptonium.eth"
+      name="whoodid.eth"
       isVerified
       content={<Content />}
       nftGroup={NFTGroup.Whoodid}
+      account={"0xcC847f25746Aee67bA796E26D108AF44D0DA4173"}
     />
   );
 };
@@ -257,6 +258,7 @@ export const PostStayStrong = () => {
     <Post
       name="Crypto Believer"
       profile={CryptoPunk5081}
+      account={"0x4ab16a42c6d06aed8bf46911267c40afc37e2270"}
       content={<Content />}
     />
   );
