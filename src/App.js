@@ -1,5 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import MainAppBar from "./presentation/component/appbar";
 import { AppContainer, MainHeroContainer } from "./styles/container";
@@ -38,6 +37,8 @@ import { WhoodidContext } from "./contexts/whoodidContext";
 import { ProfileContext } from "./contexts/profileContext";
 import { defaultProfile } from "./hook/useProfile";
 import { drawerContext } from "./contexts/drawerContext";
+import useWallet from "./hook/useWallet";
+import WhoodidVerticalLogo from "./assets/whoodid-logo-vertical.png";
 
 const PostContainer = styled.div`
   flex-direction: column;
@@ -180,6 +181,8 @@ function App() {
     },
   ];
 
+  const { connected } = useWallet();
+
   const setPostsWith = (by, filterFunc) => {
     let selectedPosts = [];
     by.forEach((element) => {
@@ -212,24 +215,46 @@ function App() {
             <drawerContext.Provider value={drawerValue}>
               <AppContainer>
                 <MainAppBar />
-                <MainHeroContainer>
-                  <SocialClubListBar />
-                  <PostContainer>
-                    <PostHeader>
-                      <span
-                        style={{
-                          alignItems: "center",
-                          display: "flex",
-                          fontSize: "25px",
-                        }}
-                      >
-                        {converStringArrayToString(groups)}
-                      </span>
-                    </PostHeader>
-                    <Posts>{posts}</Posts>
-                  </PostContainer>
-                  <HashtagListBar />
-                </MainHeroContainer>
+                {connected ? (
+                  <MainHeroContainer>
+                    <SocialClubListBar />
+                    <PostContainer>
+                      <PostHeader>
+                        <span
+                          style={{
+                            alignItems: "center",
+                            display: "flex",
+                            fontSize: "25px",
+                          }}
+                        >
+                          {converStringArrayToString(groups)}
+                        </span>
+                      </PostHeader>
+                      <Posts>{posts}</Posts>
+                    </PostContainer>
+                    <HashtagListBar />
+                  </MainHeroContainer>
+                ) : (
+                  <div style={{ width: "100%", height: "100%" }}>
+                    <img
+                      src={WhoodidVerticalLogo}
+                      style={{
+                        margin: "260px auto 0 auto",
+                        display: "block",
+                        height: "auto",
+                      }}
+                    />
+                    <p
+                      style={{
+                        margin: "0 auto",
+                        fontSize: "24px",
+                        textAlign: "center",
+                      }}
+                    >
+                      Please Connect To Wallet to Enter
+                    </p>
+                  </div>
+                )}
               </AppContainer>
             </drawerContext.Provider>
           </ProfileContext.Provider>

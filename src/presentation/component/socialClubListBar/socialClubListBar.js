@@ -11,7 +11,7 @@ import useGroup from "../../../hook/useGroup";
 import useWallet from "../../../hook/useWallet";
 import useWhoodid from "../../../hook/useWhoodid";
 import { TrapTrap } from "../../../constants";
-import Hood from "../../../assets/nft/hood8868.png";
+import Hood from "../../../assets/hoodiepunk.png";
 
 const SocialClubListBar = () => {
   const [socialClubList, setSocialClubList] = useState([]);
