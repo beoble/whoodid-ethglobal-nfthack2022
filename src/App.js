@@ -90,7 +90,7 @@ function App() {
     },
     {
       element: <PostShipDuck />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Mekaverse,
       hashtags: [HashTags.NFT],
     },
     {
@@ -105,7 +105,7 @@ function App() {
     },
     {
       element: <PostFactAboutWhale />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.SecretSocietyOfWhales,
       hashtags: [HashTags.NFT],
     },
     {
@@ -120,7 +120,7 @@ function App() {
     },
     {
       element: <PostNftProjectAd />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Rarible,
       hashtags: [HashTags.NFT],
     },
     {
@@ -130,52 +130,52 @@ function App() {
     },
     {
       element: <PostOhDuck />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Mekaverse,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostReadyPlayerOne />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Mekaverse,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostSummerWars />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Mekaverse,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostHiringAd />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Rarible,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostCat />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.SecretSocietyOfWhales,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostDog />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.SecretSocietyOfWhales,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostCoinQuestion />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.ScatteredShoeuziVol1,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostAespa />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.Rarible,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostGodOfWar />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.ScatteredShoeuziVol1,
       hashtags: [HashTags.NFT],
     },
     {
       element: <PostTeen />,
-      collection: NFTGroup.Whoodid,
+      collection: NFTGroup.MekaverseFactory,
       hashtags: [HashTags.NFT],
     },
   ];
