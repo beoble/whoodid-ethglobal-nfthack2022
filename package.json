@@ -2,7 +2,7 @@
   "name": "whoodid-eth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kryptonium-finance.github.io/whoodid-eth",
+  "homepage": "https://whoodid-eth.vercel.app/",
   "dependencies": {
     "@ethersproject/units": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.1",
@@ -21,7 +21,7 @@
     "web3": "^1.6.1"
   },
   "scripts": {
-    "predeploy": "CI=false npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
