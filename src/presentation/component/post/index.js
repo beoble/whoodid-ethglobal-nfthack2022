@@ -17,6 +17,7 @@ import OpenSeaVerified from "../../../assets/opensea_verified.png";
 import useDrawer from "../../../hook/useDrawer";
 import useProfile from "../../../hook/useProfile";
 import useWhoodid from "../../../hook/useWhoodid";
+import CommentCoolCat from "../../../assets/nft/coolcat9816.png";
 
 const ExpandMore = styled(IconButton)`
   transform: ${({ expand }) => (!expand ? "rotate(0deg)" : "rotate(180deg)")};
@@ -90,7 +91,6 @@ export default function Post({
   };
 
   const handleProfileClick = async () => {
-
     let images = await getNFTImageUrl(account);
     setProfile({
       name,
@@ -120,7 +120,11 @@ export default function Post({
         }
         title={
           <div style={{ display: "flex" }}>
-            <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ fontWeight: "bold" }}
+            >
               {name}
             </Typography>
             {isVerified && (
@@ -169,7 +173,7 @@ export default function Post({
           <Typography paragraph>Comments</Typography>
           {comments}
           <Comment
-            profile=""
+            profile={CommentCoolCat}
             name="cryptocat.eth"
             isVerified={isVerified}
             comment="wow, your new cat is so cool!"
