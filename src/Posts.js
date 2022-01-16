@@ -43,6 +43,7 @@ import NftImage from "./assets/posts/nft-art.jpg";
 
 import Typography from "@mui/material/Typography";
 import { NFTGroup } from "./hook/useGroup";
+import { VoidSnax } from "./constants";
 
 export const PostGreenSalad = () => {
   const Content = () => {
@@ -63,6 +64,7 @@ export const PostGreenSalad = () => {
       content={<Content />}
       image={Coolcat7795}
       nftGroup={NFTGroup.Whoodid}
+      account={VoidSnax}
     />
   );
 };
@@ -230,7 +232,14 @@ export const PostNftArt = () => {
       </Typography>
     );
   };
-  return <Post name="dolphinia" profile={PhantaBear9999} content={<Content />} image={NftImage} />;
+  return (
+    <Post
+      name="dolphinia"
+      profile={PhantaBear9999}
+      content={<Content />}
+      image={NftImage}
+    />
+  );
 };
 
 export const PostStayStrong = () => {
@@ -244,7 +253,13 @@ export const PostStayStrong = () => {
       </Typography>
     );
   };
-  return <Post name="Crypto Believer" profile={CryptoPunk5081} content={<Content />} />;
+  return (
+    <Post
+      name="Crypto Believer"
+      profile={CryptoPunk5081}
+      content={<Content />}
+    />
+  );
 };
 
 export const PostNftProjectAd = () => {
@@ -386,7 +401,16 @@ export const PostSummerWars = () => {
       </Typography>
     );
   };
-  return <Post name="metanime.eth" profile={Meka1784} isVerified content={<Content />} image={SummerWarsImage} nftGroup={NFTGroup.Mekaverse}/>;
+  return (
+    <Post
+      name="metanime.eth"
+      profile={Meka1784}
+      isVerified
+      content={<Content />}
+      image={SummerWarsImage}
+      nftGroup={NFTGroup.Mekaverse}
+    />
+  );
 };
 
 export const PostHiringAd = () => {

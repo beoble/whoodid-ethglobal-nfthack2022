@@ -14,18 +14,39 @@ import { truncateString } from "../../../util";
 import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import ProfileDrawer from "../profileDrawer";
 import PersonIcon from "@mui/icons-material/Person";
+import { TrapTrap } from "../../../constants";
+import useProfile, { defaultProfile } from "../../../hook/useProfile";
+import useWhoodid from "../../../hook/useWhoodid";
 
 const MainAppBar = () => {
   const { connect, connected, accounts, ensNames } = useWallet();
   const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
+  const { getNFTImageUrl } = useWhoodid();
+
+  const { profile, setProfile } = useProfile();
+
   const [ensName, setEnsName] = useState();
   const [currentNftProfile, setCurrentNftProfile] = useState(
     NFTProfileSampleImage
   );
 
+  const handleProfileClick = () => {
+    setIsDrawerOpen(true);
+    setProfileWithAddress(TrapTrap);
+  };
+
   useEffect(() => {
     if (ensNames) if (ensNames.length > 0) setEnsName(ensNames[0]);
   }, [ensNames]);
+
+  const setProfileWithAddress = async (address) => {
+    let images = await getNFTImageUrl(address);
+    setProfile({ ...defaultProfile, nftCollection: images });
+  };
+
+  useEffect(() => {
+    if (connected) setProfileWithAddress(TrapTrap);
+  }, [connected]);
 
   return (
     <MaterialAppBar>
@@ -45,7 +66,7 @@ const MainAppBar = () => {
             <ProfileImage
               src={currentNftProfile}
               alt="NFT Profile Image"
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+              onClick={handleProfileClick}
             />
           ) : (
             <PersonIcon
@@ -59,7 +80,7 @@ const MainAppBar = () => {
                 padding: "5px",
                 cursor: "pointer",
               }}
-              onClick={() => setIsDrawerOpen(true)}
+              onClick={handleProfileClick}
             />
           )}
         </ButtonContainer>

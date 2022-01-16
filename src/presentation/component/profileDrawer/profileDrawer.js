@@ -20,31 +20,9 @@ const ProfileDrawer = ({
   setCurrentNftProfile,
   followingHashtags,
 }) => {
-  const defaultProfile = {
-    name: "Kryptonium.eth",
-    description: "I am a lonely white wolf - interested in women",
-    isVerified: true,
-    nftCollection: [
-      "https://lh3.googleusercontent.com/Qls8qYF7Gbgev3ceQXo5wJ_sShclxl7MwWkpmQ_aRBC3qBLjawZJ17_GT45GzO1kUEiqRpOTUrPR4sLF-f0I9IiUywuqEkM5JAP5",
-      "https://lh3.googleusercontent.com/fLMivNtc1uMXfaC437UBu0EWxXqdg4nA8jBXQ9tv4ieTjbJJ8jPgZDsddW2U8LvdmJpFPU7PF3ljk1lvtFzwUDpHpjpVx8AEMvzY",
-    ],
-  };
-
-  const [profile, setProfile] = useState(defaultProfile);
-
   const { connected, accounts } = useWallet();
-  const { getNFTImageUrl } = useWhoodid();
   const { isDrawerOpen } = useDrawer();
-  const {} = useProfile();
-
-  const setProfileWithAddress = async (address) => {
-    let images = await getNFTImageUrl(address);
-    setProfile({ ...defaultProfile, nftCollection: images });
-  };
-
-  useEffect(() => {
-    if (connected) setProfileWithAddress(TrapTrap);
-  }, [connected]);
+  const { profile } = useProfile();
 
   return (
     <MaterialProfileDrawer

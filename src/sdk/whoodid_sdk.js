@@ -28,19 +28,6 @@ export class WhoodidSdk {
     return await this.client.get(path, config);
   };
 
-  testOpenSea = async () => {
-    let data = await this.getNFTByAddress(TrapTrap);
-    console.log(data);
-    let urls = await this.getNFTImageUrlsByAddresss(TrapTrap);
-    console.log(urls);
-    let collections = await this.getCollectibleListByAddress(TrapTrap);
-    console.log(collections);
-    let openseaCollections = await this.getOpenSeaCollectionsByAddress(
-      TrapTrap
-    );
-    console.log(openseaCollections);
-  };
-
   getNFTByAddress = async (address) => {
     let param = { owner: address };
     return (await this.getRestApi(Path.OPENSEA_ASSETS, param)).data.assets;
@@ -58,7 +45,6 @@ export class WhoodidSdk {
 
   getCollectibleListByAddress = async (address) => {
     let NFTs = await this.getOpenSeaCollectionsByAddress(address);
-    console.log(NFTs.map((nft) => nft.name));
     return NFTs.map((nft) => {
       return { name: nft.name, count: nft.stats.count };
     });
