@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0654632641140e54f151e7d421407d5c",
+    "revision": "2b18d0581c795a85c2a08a9d61cf549b",
     "url": "/whoodid-eth/index.html"
   },
   {
-    "revision": "cb32c286b5b78bb14c4e",
+    "revision": "a730ee7ae8d2e8e69705",
     "url": "/whoodid-eth/static/css/main.8ab6f918.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/whoodid-eth/static/js/4.5fb5cdf1.chunk.js"
   },
   {
-    "revision": "cb32c286b5b78bb14c4e",
-    "url": "/whoodid-eth/static/js/main.7f8b2454.chunk.js"
+    "revision": "a730ee7ae8d2e8e69705",
+    "url": "/whoodid-eth/static/js/main.5b1aa00b.chunk.js"
   },
   {
     "revision": "85d2549e6199129a6d68",
