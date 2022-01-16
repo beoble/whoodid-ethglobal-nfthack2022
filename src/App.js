@@ -9,11 +9,12 @@ import HashtagListBar from "./presentation/component/hashtagListBar";
 import { NFTGroup } from "./hook/useGroup";
 import { HashTags } from "./hook/useHashtag";
 import {
+  PostFactAboutWhale,
   PostGreenSalad,
   PostHoodie,
   PostKryptonium,
-  PostMelvin,
-  PostShipDuck,
+  PostMelvin, PostNftArt, PostNftProjectAd,
+  PostShipDuck, PostStayStrong, PostVitalik,
 } from "./Posts";
 import { WhoodidSdk } from "./sdk/whoodid_sdk";
 import { truncateString, converStringArrayToString } from "./util";
@@ -78,6 +79,31 @@ function App() {
     },
     {
       element: <PostKryptonium />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostFactAboutWhale />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostStayStrong />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostNftArt />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostNftProjectAd />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostVitalik />,
       collection: NFTGroup.Whoodid,
       hashtags: [HashTags.NFT],
     },

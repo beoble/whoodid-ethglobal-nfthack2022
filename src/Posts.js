@@ -8,6 +8,8 @@ import Meka6242 from "./assets/nft/meka6242.png";
 import Hood512 from "./assets/nft/hood512.png";
 import F10Klaytn from "./assets/f10xklaytn.png";
 import Doodle662 from "./assets/nft/doodle316.png";
+import VaccinePassportsMap from "./assets/posts/vitalik-post.png";
+
 import Typography from "@mui/material/Typography";
 
 export const PostGreenSalad = () => {
@@ -136,4 +138,110 @@ export const PostHoodie = () => {
     );
   };
   return <Post name="angry squid" profile={Hood512} content={<Content />} />;
+};
+
+export const PostFactAboutWhale = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Fact of the day: Did you guys know that the blue whale is the largest
+        animal that ever lived?
+        <Typography variant="body1" color="#00A0FA">
+          #whales{" "}
+          <Typography display="inline" variant="body1" color="text.secondary">
+            are just so amazing! 😍
+          </Typography>
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #SecretSocietyOfWhales #Facts
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+};
+
+export const PostNftArt = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        This{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #NFT{" "}
+          <Typography display="inline" variant="body1" color="text.secondary">
+            is just dope!!! Just take my money please! 💸💸💸
+          </Typography>
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #NFT{" "}
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+};
+
+export const PostStayStrong = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        #StayStrong guys, we will go to the moon!
+        <Typography variant="body1" color="#00A0FA">
+          #StayStrong #Jonbeo
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+};
+
+export const PostNftProjectAd = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Hey folks! Check this cool{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #NFTProject{" "}
+          <Typography display="inline" variant="body1" color="text.secondary">
+            out!!! Too excited!!!
+          </Typography>
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Presale goes live in just 2 days! 🔥🔥🔥
+        </Typography>
+        <Typography variant="body1" color="#00A0FA" sx={{cursor: "pointer"}}>
+          www.cryptopunks2077nft.art
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #NFT #NFTProject
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="dolphinia" profile={Hood512} content={<Content />} />;
+};
+
+export const PostVitalik = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        My favorite thing about arguments against vaccine passports is that they
+        usually work even better verbatim as arguments against regular
+        passports. Seriously, look at these maps. This is unfair apartheid and
+        we should be resisting it more.
+        <Typography variant="body1" color="#00A0FA">
+          #Covid #FightVaccinePassports
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="vitalik.eth"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+      image={VaccinePassportsMap}
+    />
+  );
 };
