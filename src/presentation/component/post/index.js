@@ -90,7 +90,7 @@ export default function Post({
   };
 
   const handleProfileClick = async () => {
-    setIsDrawerOpen(true);
+
     let images = await getNFTImageUrl(account);
     setProfile({
       name,
@@ -99,6 +99,7 @@ export default function Post({
       isVerified,
       nftCollection: images,
     });
+    setIsDrawerOpen(true);
   };
 
   return (
@@ -108,7 +109,7 @@ export default function Post({
           <Avatar
             alt="profile"
             src={profile}
-            sx={{ width: 48, height: 48 }}
+            sx={{ width: 48, height: 48, cursor: "pointer" }}
             onClick={handleProfileClick}
           />
         }
@@ -119,7 +120,7 @@ export default function Post({
         }
         title={
           <div style={{ display: "flex" }}>
-            <Typography variant="body1" color="text.secondary">
+            <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold' }}>
               {name}
             </Typography>
             {isVerified && (
