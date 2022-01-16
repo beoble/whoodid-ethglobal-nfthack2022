@@ -2,7 +2,7 @@
   "name": "whoodid-eth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kryptonium-finance.github.io/whoodid-eth/",
+  "homepage": "https://kryptonium-finance.github.io/whoodid-eth",
   "dependencies": {
     "@ethersproject/units": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.1",
