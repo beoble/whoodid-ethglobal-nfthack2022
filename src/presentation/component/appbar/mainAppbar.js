@@ -9,6 +9,7 @@ import {
 } from "./mainAppbar.style";
 import WhoodidLogoImage from "../../../assets/whoodid-logo.png";
 import useWallet from "../../../hook/useWallet";
+import useDrawer from "../../../hook/useDrawer";
 import { truncateString } from "../../../util";
 import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import ProfileDrawer from "../profileDrawer";
@@ -16,8 +17,8 @@ import PersonIcon from "@mui/icons-material/Person";
 
 const MainAppBar = () => {
   const { connect, connected, accounts, ensNames } = useWallet();
+  const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
   const [ensName, setEnsName] = useState();
-  const [isProfileDrawerOpen, setIsProfileDrawerOpen] = useState(false);
   const [currentNftProfile, setCurrentNftProfile] = useState(
     NFTProfileSampleImage
   );
@@ -44,7 +45,7 @@ const MainAppBar = () => {
             <ProfileImage
               src={currentNftProfile}
               alt="NFT Profile Image"
-              onClick={() => setIsProfileDrawerOpen(!isProfileDrawerOpen)}
+              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             />
           ) : (
             <PersonIcon
@@ -58,14 +59,13 @@ const MainAppBar = () => {
                 padding: "5px",
                 cursor: "pointer",
               }}
-              onClick={() => setIsProfileDrawerOpen(true)}
+              onClick={() => setIsDrawerOpen(true)}
             />
           )}
         </ButtonContainer>
       </AppbarInnerContainer>
       <ProfileDrawer
-        isProfileDrawerOpen={isProfileDrawerOpen}
-        setIsProfileDrawerOpen={setIsProfileDrawerOpen}
+        setIsProfileDrawerOpen={setIsDrawerOpen}
         currentNftProfile={currentNftProfile}
         setCurrentNftProfile={setCurrentNftProfile}
         followingHashtags={[

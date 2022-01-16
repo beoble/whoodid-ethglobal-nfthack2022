@@ -11,9 +11,10 @@ import OpenSeaVerified from "../../../assets/opensea_verified.png";
 import { ImageListItem } from "@mui/material";
 import useWhoodid from "../../../hook/useWhoodid";
 import { TrapTrap } from "../../../constants";
+import useDrawer from "../../../hook/useDrawer";
+import useProfile from "../../../hook/useProfile";
 
 const ProfileDrawer = ({
-  isProfileDrawerOpen,
   setIsProfileDrawerOpen,
   currentNftProfile,
   setCurrentNftProfile,
@@ -33,6 +34,8 @@ const ProfileDrawer = ({
 
   const { connected, accounts } = useWallet();
   const { getNFTImageUrl } = useWhoodid();
+  const { isDrawerOpen } = useDrawer();
+  const {} = useProfile();
 
   const setProfileWithAddress = async (address) => {
     let images = await getNFTImageUrl(address);
@@ -45,7 +48,7 @@ const ProfileDrawer = ({
 
   return (
     <MaterialProfileDrawer
-      open={isProfileDrawerOpen}
+      open={isDrawerOpen}
       anchor="right"
       onClose={() => setIsProfileDrawerOpen(false)}
     >

@@ -14,6 +14,9 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import OpenSeaVerified from "../../../assets/opensea_verified.png";
+import useDrawer from "../../../hook/useDrawer";
+import useProfile from "../../../hook/useProfile";
+import useWhoodid from "../../../hook/useWhoodid";
 
 const ExpandMore = styled(IconButton)`
   transform: ${({ expand }) => (!expand ? "rotate(0deg)" : "rotate(180deg)")};
@@ -78,14 +81,23 @@ export default function Post({
   nftGroup = "Whoodid",
 }) {
   const [expanded, setExpanded] = useState(false);
+  const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
+  const { setProfile } = useProfile();
+  const { getNFTImageUrl } = useWhoodid();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const handleProfileClick = () => {
-    console.log("hio");
-    console.log(typeof profile);
+  const handleProfileClick = async () => {
+    setIsDrawerOpen(true);
+    let images = await getNFTImageUrl(account);
+    setProfile({
+      name,
+      description: "No Description Yet",
+      isVerified,
+      nftCollection: images,
+    });
   };
 
   return (

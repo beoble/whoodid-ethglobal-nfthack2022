@@ -31,10 +31,13 @@ import {
   PostVitalik,
 } from "./Posts";
 import { WhoodidSdk } from "./sdk/whoodid_sdk";
-import { truncateString, converStringArrayToString } from "./util";
+import { converStringArrayToString } from "./util";
 import { GroupGontext } from "./contexts/groupContext";
 import { HashtagContext } from "./contexts/hashtagContext";
 import { WhoodidContext } from "./contexts/whoodidContext";
+import { ProfileContext } from "./contexts/profileContext";
+import { defaultProfile } from "./hook/useProfile";
+import { drawerContext } from "./contexts/drawerContext";
 
 const PostContainer = styled.div`
   flex-direction: column;
@@ -64,10 +67,14 @@ const Posts = styled.div`
 `;
 
 function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [groups, setGroups] = useState([NFTGroup.Whoodid]);
   const [hashtags, setHashtags] = useState([HashTags]);
+  const [profile, setProfile] = useState(defaultProfile);
   const groupValue = { groups, setGroups };
   const hashtagValue = { hashtags, setHashtags };
+  const profileValue = { profile, setProfile };
+  const drawerValue = { isDrawerOpen, setIsDrawerOpen };
   const [posts, setPosts] = useState([]);
   const sdk = new WhoodidSdk();
   const postList = [
@@ -201,27 +208,31 @@ function App() {
     <GroupGontext.Provider value={groupValue}>
       <HashtagContext.Provider value={hashtagValue}>
         <WhoodidContext.Provider value={{ sdk }}>
-          <AppContainer>
-            <MainAppBar />
-            <MainHeroContainer>
-              <SocialClubListBar />
-              <PostContainer>
-                <PostHeader>
-                  <span
-                    style={{
-                      alignItems: "center",
-                      display: "flex",
-                      fontSize: "25px",
-                    }}
-                  >
-                    {converStringArrayToString(groups)}
-                  </span>
-                </PostHeader>
-                <Posts>{posts}</Posts>
-              </PostContainer>
-              <HashtagListBar />
-            </MainHeroContainer>
-          </AppContainer>
+          <ProfileContext.Provider value={profileValue}>
+            <drawerContext.Provider value={drawerValue}>
+              <AppContainer>
+                <MainAppBar />
+                <MainHeroContainer>
+                  <SocialClubListBar />
+                  <PostContainer>
+                    <PostHeader>
+                      <span
+                        style={{
+                          alignItems: "center",
+                          display: "flex",
+                          fontSize: "25px",
+                        }}
+                      >
+                        {converStringArrayToString(groups)}
+                      </span>
+                    </PostHeader>
+                    <Posts>{posts}</Posts>
+                  </PostContainer>
+                  <HashtagListBar />
+                </MainHeroContainer>
+              </AppContainer>
+            </drawerContext.Provider>
+          </ProfileContext.Provider>
         </WhoodidContext.Provider>
       </HashtagContext.Provider>
     </GroupGontext.Provider>
