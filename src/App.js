@@ -9,15 +9,25 @@ import HashtagListBar from "./presentation/component/hashtagListBar";
 import { NFTGroup } from "./hook/useGroup";
 import { HashTags } from "./hook/useHashtag";
 import {
+  PostAespa,
+  PostCat,
+  PostCoinQuestion,
+  PostDog,
   PostFactAboutWhale,
+  PostGodOfWar,
   PostGreenSalad,
+  PostHiringAd,
   PostHoodie,
   PostKryptonium,
   PostMelvin,
   PostNftArt,
   PostNftProjectAd,
+  PostOhDuck,
+  PostReadyPlayerOne,
   PostShipDuck,
   PostStayStrong,
+  PostSummerWars,
+  PostTeen,
   PostVitalik,
 } from "./Posts";
 import { WhoodidSdk } from "./sdk/whoodid_sdk";
@@ -108,6 +118,56 @@ function App() {
     },
     {
       element: <PostVitalik />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostOhDuck />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostReadyPlayerOne />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostSummerWars />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostHiringAd />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostCat />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostDog />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostCoinQuestion />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostAespa />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostGodOfWar />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostTeen />,
       collection: NFTGroup.Whoodid,
       hashtags: [HashTags.NFT],
     },
