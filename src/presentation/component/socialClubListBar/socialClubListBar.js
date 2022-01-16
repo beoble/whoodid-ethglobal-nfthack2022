@@ -11,12 +11,13 @@ import useGroup from "../../../hook/useGroup";
 import useWallet from "../../../hook/useWallet";
 import useWhoodid from "../../../hook/useWhoodid";
 import { TrapTrap } from "../../../constants";
+import Hood from "../../../assets/nft/hood8868.png";
 
 const SocialClubListBar = () => {
   const [socialClubList, setSocialClubList] = useState([]);
 
   const initialFetchedValue = [
-    { name: "Whoodid", hooders: 3333, isSelected: true },
+    { name: "Whoodid", hooders: 3333, isSelected: true, image: Hood },
   ];
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const SocialClubListBar = () => {
       let socialClubs = collectibles.map((collect) => {
         return {
           name: collect.name,
+          image: collect.profile,
           hooders: collect.count,
           isSelected: false,
         };
@@ -70,9 +72,11 @@ const SocialClubListBar = () => {
       >
         <ListItemButton>
           <ListItemAvatar>
-            <Avatar>
-              <ImageIcon />
-            </Avatar>
+            <Avatar
+              alt="profile"
+              src={socialClub.image}
+              sx={{ width: 48, height: 48 }}
+            />
           </ListItemAvatar>
           <ListItemText
             primary={socialClub.name}
