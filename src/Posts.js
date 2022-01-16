@@ -50,7 +50,7 @@ export const PostGreenSalad = () => {
       <Typography variant="body1" color="text.secondary">
         Hi, I got another{" "}
         <Typography display="inline" variant="body1" color="#00A0FA">
-          #coolcat
+          #coolcat #NFT
         </Typography>
       </Typography>
     );
@@ -99,7 +99,7 @@ export const PostShipDuck = () => {
         </Typography>
         Character - who is yours?
         <Typography variant="body1" color="#00A0FA">
-          #robot #gurrenlagann
+          #robot #gurrenlagann #CryptoChallenge
         </Typography>
       </Typography>
     );
@@ -138,7 +138,7 @@ export const PostMelvin = () => {
           Interested startups do apply now!
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #buildonklaytn #F10 #klaytncubation
+          #buildonklaytn #F10 #klaytncubation #Crypto #ETHGLobal
         </Typography>
       </Typography>
     );
@@ -196,7 +196,7 @@ export const PostFactAboutWhale = () => {
           </Typography>
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #SecretSocietyOfWhales #Facts
+          #SecretSocietyOfWhales #Facts #Animals
         </Typography>
       </Typography>
     );
@@ -239,7 +239,7 @@ export const PostStayStrong = () => {
       <Typography variant="body1" color="text.secondary">
         #StayStrong guys, we will go to the moon!
         <Typography variant="body1" color="#00A0FA">
-          #StayStrong #Jonbeo
+          #StayStrong #Jonbeo #Crypto
         </Typography>
       </Typography>
     );
@@ -316,10 +316,10 @@ export const PostOhDuck = () => {
           #anime{" "}
         </Typography>
         <Typography display="inline" variant="body1" color="text.secondary">
-          character. A must-watch every winter for me ❄️❄️❄️
+          character. A must-watch every winter for me ❄️❄️❄️ - Who is your fav?
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #Toradora #anime #Taiga
+          #Toradora #anime #Taiga #CryptoChallenge
         </Typography>
       </Typography>
     );
@@ -405,7 +405,7 @@ export const PostHiringAd = () => {
           www.binance.com/careers/job-id=34921
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #Binance #RemoteWork #Hiring #Developer
+          #Binance #RemoteWork #Hiring #Developer #ETHGLobal
         </Typography>
       </Typography>
     );
@@ -434,7 +434,7 @@ export const PostDog = () => {
           We will go to the moon together!!!
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #Animals #cat #kitten
+          #Animals #dog #Crypto
         </Typography>
       </Typography>
     );
@@ -493,11 +493,11 @@ export const PostAespa = () => {
       <Typography variant="body1" color="text.secondary">
         Hello fellow MY! Where can I get{" "}
         <Typography display="inline" variant="body1" color="#00A0FA">
-          #Aespa{" "}
+          #Aespa #NFT{" "}
         </Typography>
         goods?{" "}
         <Typography variant="body1" color="#00A0FA">
-          #Kpop #Aespa
+          #Kpop #Aespa #NFT
         </Typography>
       </Typography>
     );
@@ -526,7 +526,7 @@ export const PostCoinQuestion = () => {
           worth investing or just another shit coin?
         </Typography>
         <Typography variant="body1" color="#00A0FA">
-          #KimchiCoin #Investment #Coin
+          #KimchiCoin #Investment #Coin #Crypto
         </Typography>
       </Typography>
     );
