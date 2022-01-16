@@ -15,7 +15,6 @@ import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import ProfileDrawer from "../profileDrawer";
 import PersonIcon from "@mui/icons-material/Person";
 import Select from "react-select";
-import { TrapTrap } from "../../../constants";
 import useProfile, { defaultProfile } from "../../../hook/useProfile";
 import useWhoodid from "../../../hook/useWhoodid";
 import Ethereum from "../../../assets/ethereum-eth-logo.png";
@@ -74,7 +73,7 @@ const MainAppBar = () => {
 
   const handleProfileClick = () => {
     setIsDrawerOpen(true);
-    setProfileWithAddress(TrapTrap);
+    setProfileWithAddress(accounts[0]);
   };
 
   useEffect(() => {
@@ -96,7 +95,7 @@ const MainAppBar = () => {
   };
 
   useEffect(() => {
-    if (connected) setProfileWithAddress(TrapTrap);
+    if (connected) setProfileWithAddress(accounts[0]);
   }, [connected]);
 
   return (

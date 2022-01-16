@@ -39,7 +39,7 @@ const SocialClubListBar = () => {
 
   useEffect(() => {
     const getCollectibleListAndSet = async () => {
-      let collectibles = await getCollectibleList(TrapTrap);
+      let collectibles = await getCollectibleList(accounts[0]);
       let socialClubs = collectibles.map((collect) => {
         return {
           name: collect.name,
