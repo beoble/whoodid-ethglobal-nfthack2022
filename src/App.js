@@ -79,6 +79,11 @@ function App() {
   const sdk = new WhoodidSdk();
   const postList = [
     {
+      element: <PostVitalik />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [],
+    },
+    {
       element: <PostGreenSalad />,
       collection: NFTGroup.Whoodid,
       hashtags: [HashTags.NFT],
@@ -86,32 +91,32 @@ function App() {
     {
       element: <PostMelvin />,
       collection: NFTGroup.Whoodid,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Crypto, HashTags.ETHGlobal],
     },
     {
       element: <PostShipDuck />,
       collection: NFTGroup.Mekaverse,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.CryptoChallenge],
     },
     {
       element: <PostHoodie />,
       collection: NFTGroup.Whoodid,
-      hashtags: [HashTags.NFT],
+      hashtags: [],
     },
     {
       element: <PostKryptonium />,
       collection: NFTGroup.Whoodid,
-      hashtags: [HashTags.NFT],
+      hashtags: [],
     },
     {
       element: <PostFactAboutWhale />,
       collection: NFTGroup.SecretSocietyOfWhales,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Animals],
     },
     {
       element: <PostStayStrong />,
       collection: NFTGroup.Whoodid,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Crypto],
     },
     {
       element: <PostNftArt />,
@@ -124,44 +129,39 @@ function App() {
       hashtags: [HashTags.NFT],
     },
     {
-      element: <PostVitalik />,
-      collection: NFTGroup.Whoodid,
-      hashtags: [HashTags.NFT],
+      element: <PostReadyPlayerOne />,
+      collection: NFTGroup.Mekaverse,
+      hashtags: [HashTags.Metaverse],
     },
     {
       element: <PostOhDuck />,
       collection: NFTGroup.Mekaverse,
-      hashtags: [HashTags.NFT],
-    },
-    {
-      element: <PostReadyPlayerOne />,
-      collection: NFTGroup.Mekaverse,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.CryptoChallenge],
     },
     {
       element: <PostSummerWars />,
       collection: NFTGroup.Mekaverse,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Metaverse],
     },
     {
       element: <PostHiringAd />,
       collection: NFTGroup.Rarible,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.ETHGlobal],
     },
     {
       element: <PostCat />,
       collection: NFTGroup.SecretSocietyOfWhales,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Animals],
     },
     {
       element: <PostDog />,
       collection: NFTGroup.SecretSocietyOfWhales,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Animals, HashTags.Crypto],
     },
     {
       element: <PostCoinQuestion />,
       collection: NFTGroup.ScatteredShoeuziVol1,
-      hashtags: [HashTags.NFT],
+      hashtags: [HashTags.Crypto],
     },
     {
       element: <PostAespa />,
@@ -171,12 +171,12 @@ function App() {
     {
       element: <PostGodOfWar />,
       collection: NFTGroup.ScatteredShoeuziVol1,
-      hashtags: [HashTags.NFT],
+      hashtags: [],
     },
     {
       element: <PostTeen />,
       collection: NFTGroup.MekaverseFactory,
-      hashtags: [HashTags.NFT],
+      hashtags: [],
     },
   ];
 

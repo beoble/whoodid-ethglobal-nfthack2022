@@ -28,14 +28,15 @@ const HashtagListBar = () => {
 
   const initialFetchedValue = [
     { name: "NFT", traits: ["🔥", "🚀"], isSelected: false },
-    { name: "ETHGlobal", traits: ["🚀"], hooders: 4444, isSelected: false },
-    { name: "Metaverse", traits: ["🔥"], hooders: 5555, isSelected: false },
+    { name: "Crypto", traits: ["🔥", "🚀"], isSelected: false },
+    { name: "ETHGlobal", traits: ["🚀"], isSelected: false },
+    { name: "Metaverse", traits: ["🔥"], isSelected: false },
     {
       name: "CryptoChallenge",
       traits: ["🔥", "🚀"],
-      hooders: 6666,
       isSelected: false,
     },
+    { name: "Animals", traits: ["🔥"], isSelected: false },
   ];
 
   const { setHashtags } = useHashtag();

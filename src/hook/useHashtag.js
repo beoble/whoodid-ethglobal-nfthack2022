@@ -11,6 +11,8 @@ export const HashTags = {
   ETHGlobal: "ETHGlobal",
   Metaverse: "Metaverse",
   CryptoChallenge: "CryptoChallenge",
+  Animals: "Animals",
+  Crypto: "Crypto"
 };
 
 export default useHashtag;
