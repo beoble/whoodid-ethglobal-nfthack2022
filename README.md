@@ -1,5 +1,7 @@
 # Welcome ETH Global
 
+checkout our [demo](https://whoodid-eth.vercel.app/)
+
 ## HOW TO RUN
 
 ```
