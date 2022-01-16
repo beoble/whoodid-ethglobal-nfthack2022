@@ -21,6 +21,7 @@ import {
 } from "./hashtagListBar.style";
 import SearchIcon from "@mui/icons-material/Search";
 import Emoji from "../../../util/Emoji";
+import useHashtag from "../../../hook/useHashtag";
 
 const HashtagListBar = () => {
   const [hashtagList, setHashtagList] = useState([]);
@@ -37,9 +38,19 @@ const HashtagListBar = () => {
     },
   ];
 
+  const { setHashtags } = useHashtag();
+
   useEffect(() => {
     setHashtagList(initialFetchedValue);
   }, []);
+
+  useEffect(() => {
+    setHashtags(
+      hashtagList
+        .filter((hashtag) => hashtag.isSelected == true)
+        .map((hashtag) => hashtag.name)
+    );
+  }, [hashtagList]);
 
   const updateHashtagListSelection = (index) => {
     let newArr = [...hashtagList];

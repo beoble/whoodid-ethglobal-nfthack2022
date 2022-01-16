@@ -53,30 +53,61 @@ function App() {
   const [hashtags, setHashtags] = useState([HashTags]);
   const groupValue = { groups, setGroups };
   const hashtagValue = { hashtags, setHashtags };
+  const [posts, setPosts] = useState([]);
   const sdk = new WhoodidSdk();
-
-  axios.interceptors.request.use(
-    (config) => {
-      console.log(config);
-    },
-    (error) => {
-      console.log(error);
-    }
-  );
-
-  const testArray = [<PostGreenSalad />, <PostHoodie />];
-  const posts = [
+  const postList = [
     {
       element: <PostGreenSalad />,
-      collection: NFTGroup.CoolCats,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostMelvin />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostShipDuck />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostHoodie />,
+      collection: NFTGroup.Whoodid,
+      hashtags: [HashTags.NFT],
+    },
+    {
+      element: <PostKryptonium />,
+      collection: NFTGroup.Whoodid,
       hashtags: [HashTags.NFT],
     },
   ];
 
+  const setPostsWithGroup = () => {
+    let selectedPosts = [];
+    groups.forEach((nft) => {
+      selectedPosts.push(...postList.filter((post) => post.collection == nft));
+    });
+    setPosts([...selectedPosts.map((post) => post.element)]);
+  };
+
   useEffect(() => {
-    //testOpenSea();
-    sdk.testOpenSea();
-  }, []);
+    setPostsWithGroup();
+  }, [groups]);
+
+  useEffect(() => {
+    if (hashtags.length > 0) {
+      let selectedPosts = [];
+      hashtags.forEach((hashtag) => {
+        selectedPosts.push(
+          ...postList.filter((post) => post.hashtags.includes(hashtag))
+        );
+      });
+      setPosts([...selectedPosts.map((post) => post.element)]);
+    } else {
+      setPostsWithGroup();
+    }
+  }, [hashtags]);
 
   return (
     <GroupGontext.Provider value={groupValue}>
@@ -98,14 +129,7 @@ function App() {
                     {converStringArrayToString(groups)}
                   </span>
                 </PostHeader>
-                <Posts>
-                  {testArray}
-                  <PostGreenSalad />
-                  <PostMelvin />
-                  <PostShipDuck />
-                  <PostHoodie />
-                  <PostKryptonium />
-                </Posts>
+                <Posts>{posts}</Posts>
               </PostContainer>
               <HashtagListBar />
             </MainHeroContainer>
