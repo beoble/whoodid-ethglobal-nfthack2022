@@ -107,6 +107,7 @@ const MainAppBar = () => {
         </MaterialAppBarLogo>
         <ButtonContainer>
           <Select
+            isDisabled={connected}
             options={chainOptions}
             onChange={handleChainChange}
             defaultValue={selectedChain}
