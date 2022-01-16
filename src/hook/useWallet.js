@@ -46,7 +46,8 @@ const useWallet = () => {
     accounts,
     ensNames,
     balances,
-    setChainId,
+    desiredChainId,
+    setDesiredChainId,
     connect,
   };
 };

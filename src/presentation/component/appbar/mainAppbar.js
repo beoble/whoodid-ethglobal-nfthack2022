@@ -14,12 +14,47 @@ import { truncateString } from "../../../util";
 import NFTProfileSampleImage from "../../../assets/nft/hood512.png";
 import ProfileDrawer from "../profileDrawer";
 import PersonIcon from "@mui/icons-material/Person";
+import Select from "react-select";
 import { TrapTrap } from "../../../constants";
 import useProfile, { defaultProfile } from "../../../hook/useProfile";
 import useWhoodid from "../../../hook/useWhoodid";
+import Ethereum from "../../../assets/ethereum-eth-logo.png";
+import Polygon from "../../../assets/polygon-matic-logo.png";
+
+const chainOptions = [
+  {
+    value: 1,
+    label: (
+      <div>
+        <img
+          src={Ethereum}
+          height="15px"
+          width="15px"
+          style={{ marginRight: "10px" }}
+        />
+        Ethereum{" "}
+      </div>
+    ),
+  },
+  {
+    value: 137,
+    label: (
+      <div>
+        <img
+          src={Polygon}
+          height="15px"
+          width="15px"
+          style={{ marginRight: "10px" }}
+        />
+        Ploygon{" "}
+      </div>
+    ),
+  },
+];
 
 const MainAppBar = () => {
-  const { connect, connected, accounts, ensNames } = useWallet();
+  const { connect, connected, accounts, ensNames, setDesiredChainId } =
+    useWallet();
   const { setIsDrawerOpen } = useDrawer();
   const { getNFTImageUrl } = useWhoodid();
 
@@ -30,13 +65,19 @@ const MainAppBar = () => {
     NFTProfileSampleImage
   );
 
+  const [selectedChain, setSelectedChain] = useState(chainOptions[0]);
+
+  const handleChainChange = (option) => {
+    setSelectedChain(option);
+    setDesiredChainId(option.value);
+  };
+
   const handleProfileClick = () => {
     setIsDrawerOpen(true);
     setProfileWithAddress(TrapTrap);
   };
 
   useEffect(() => {
-    console.log(ensNames);
     if (ensNames) if (ensNames.length > 0) setEnsName(ensNames[0]);
   }, [ensNames]);
 
@@ -65,7 +106,15 @@ const MainAppBar = () => {
           <img src={WhoodidLogoImage} alt="Whoodid Logo" width={250} />
         </MaterialAppBarLogo>
         <ButtonContainer>
-          <MaterialConnectButton onClick={connect}>
+          <Select
+            options={chainOptions}
+            onChange={handleChainChange}
+            defaultValue={selectedChain}
+          />
+          <MaterialConnectButton
+            onClick={connect}
+            style={{ marginLeft: "10px" }}
+          >
             {getAccountStr()}
           </MaterialConnectButton>
           {connected ? (

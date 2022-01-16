@@ -1,5 +1,6 @@
 export const getAddChainParameters = (chainId) => {
   const chainInformation = CHAINS[chainId];
+  console.log(chainId, chainInformation);
   if (isExtendedChainInformation(chainInformation)) {
     return {
       chainId,
