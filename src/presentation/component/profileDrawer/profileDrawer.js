@@ -13,12 +13,12 @@ import useDrawer from "../../../hook/useDrawer";
 import useProfile from "../../../hook/useProfile";
 
 const ProfileDrawer = ({ setCurrentNftProfile, followingHashtags }) => {
-  const { connected, accounts } = useWallet();
+  const { connected, accounts, ensNames } = useWallet();
   const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
   const { profile, setProfile } = useProfile();
 
   const handleNFTClicked = (nft) => {
-    if (profile.name == "Kryptonium.eth") {
+    if (profile.name == "Kryptonium.eth" || profile.name == ensNames[0]) {
       setProfile({ ...profile, profilePicture: nft });
       setCurrentNftProfile(nft);
     }
@@ -93,7 +93,11 @@ const ProfileDrawer = ({ setCurrentNftProfile, followingHashtags }) => {
               <a href="">+{followingHashtags.length - 3} MORE...</a>
             )}
           </Typography>
-          <OwnedNftImageList sx={{ width: 400, overflowY: 'visible' }} cols={3} rowHeight={400 / 3}>
+          <OwnedNftImageList
+            sx={{ width: 400, overflowY: "visible" }}
+            cols={3}
+            rowHeight={400 / 3}
+          >
             {profile.nftCollection.map((ownedNft, index) => {
               return (
                 <ImageListItem key={index} sx={{ cursor: "pointer" }}>

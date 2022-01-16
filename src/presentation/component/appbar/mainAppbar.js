@@ -36,12 +36,22 @@ const MainAppBar = () => {
   };
 
   useEffect(() => {
+    console.log(ensNames);
     if (ensNames) if (ensNames.length > 0) setEnsName(ensNames[0]);
   }, [ensNames]);
 
   const setProfileWithAddress = async (address) => {
     let images = await getNFTImageUrl(address);
-    setProfile({ ...defaultProfile, nftCollection: images });
+    if (ensNames)
+      setProfile({ ...defaultProfile, name: ensNames, nftCollection: images });
+    else setProfile({ ...defaultProfile, nftCollection: images });
+  };
+
+  const getAccountStr = () => {
+    if (connected) {
+      if (ensNames) return ensName;
+      else return truncateString(accounts[0]);
+    } else return "CONNECT TO WALLET";
   };
 
   useEffect(() => {
@@ -56,11 +66,7 @@ const MainAppBar = () => {
         </MaterialAppBarLogo>
         <ButtonContainer>
           <MaterialConnectButton onClick={connect}>
-            {connected
-              ? ensName ?? accounts.length > 0
-                ? truncateString(accounts[0])
-                : "CONNECT TO WALLET"
-              : "CONNECT TO WALLET"}
+            {getAccountStr()}
           </MaterialConnectButton>
           {connected ? (
             <ProfileImage
