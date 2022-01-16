@@ -94,6 +94,7 @@ export default function Post({
     let images = await getNFTImageUrl(account);
     setProfile({
       name,
+      profilePicture: profile,
       description: "No Description Yet",
       isVerified,
       nftCollection: images,

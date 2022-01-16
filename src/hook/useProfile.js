@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import NFTProfileSampleImage from "../assets/nft/hood512.png";
 import { ProfileContext } from "../contexts/profileContext";
 
 const useProfile = () => {
@@ -8,6 +9,7 @@ const useProfile = () => {
 
 export const defaultProfile = {
   name: "Kryptonium.eth",
+  profilePicture: NFTProfileSampleImage,
   description: "I am a lonely white wolf - interested in women",
   isVerified: true,
   nftCollection: [

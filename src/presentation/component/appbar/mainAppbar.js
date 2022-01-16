@@ -20,7 +20,7 @@ import useWhoodid from "../../../hook/useWhoodid";
 
 const MainAppBar = () => {
   const { connect, connected, accounts, ensNames } = useWallet();
-  const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
+  const { setIsDrawerOpen } = useDrawer();
   const { getNFTImageUrl } = useWhoodid();
 
   const { profile, setProfile } = useProfile();

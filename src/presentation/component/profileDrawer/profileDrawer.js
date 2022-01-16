@@ -9,30 +9,33 @@ import {
 import Typography from "@mui/material/Typography";
 import OpenSeaVerified from "../../../assets/opensea_verified.png";
 import { ImageListItem } from "@mui/material";
-import useWhoodid from "../../../hook/useWhoodid";
-import { TrapTrap } from "../../../constants";
 import useDrawer from "../../../hook/useDrawer";
 import useProfile from "../../../hook/useProfile";
 
-const ProfileDrawer = ({
-  setIsProfileDrawerOpen,
-  currentNftProfile,
-  setCurrentNftProfile,
-  followingHashtags,
-}) => {
+const ProfileDrawer = ({ setCurrentNftProfile, followingHashtags }) => {
   const { connected, accounts } = useWallet();
-  const { isDrawerOpen } = useDrawer();
-  const { profile } = useProfile();
+  const { isDrawerOpen, setIsDrawerOpen } = useDrawer();
+  const { profile, setProfile } = useProfile();
+
+  const handleNFTClicked = (nft) => {
+    if (profile.name == "Kryptonium.eth") {
+      setProfile({ ...profile, profilePicture: nft });
+      setCurrentNftProfile(nft);
+    }
+  };
 
   return (
     <MaterialProfileDrawer
       open={isDrawerOpen}
       anchor="right"
-      onClose={() => setIsProfileDrawerOpen(false)}
+      onClose={() => setIsDrawerOpen(false)}
     >
       {connected ? (
         <ProfileDrawerInnerContainer>
-          <MainNftProfileImage src={currentNftProfile} alt="main NFT profile" />
+          <MainNftProfileImage
+            src={profile.profilePicture}
+            alt="main NFT profile"
+          />
           <div
             style={{
               display: "flex",
@@ -98,7 +101,7 @@ const ProfileDrawer = ({
                     src={`${ownedNft}`}
                     alt={ownedNft}
                     loading="lazy"
-                    onClick={() => setCurrentNftProfile(ownedNft)}
+                    onClick={() => handleNFTClicked(ownedNft)}
                   />
                 </ImageListItem>
               );
