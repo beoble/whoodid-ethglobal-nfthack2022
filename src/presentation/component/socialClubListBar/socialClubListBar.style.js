@@ -7,7 +7,7 @@ export const SocialClubList = styled(List)`
     flex-direction: column;
     margin-top: 72px;
     position: fixed;
-    width: 260px;
+    width: 270px;
     height: calc(100vh - 72px);
     overflow-y: auto;
     overflow-x: hidden;
