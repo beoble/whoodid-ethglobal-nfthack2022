@@ -10,7 +10,9 @@ npm start
 ## Projects we are using
 
 Opensea API
+
 Covalent API
+
 Can connect to Polygon
 
 ## Copyright
