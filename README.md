@@ -2,6 +2,12 @@
 
 checkout our [demo](https://whoodid-eth.vercel.app/)
 
+## Whoodid is
+
+NFT Native Social Platform NFT owners.
+
+NFT Owners can enter to NFT private room.
+
 ## HOW TO RUN
 
 ```
@@ -12,8 +18,6 @@ npm start
 ## Projects we are using
 
 Opensea API
-
-Covalent API
 
 Can connect to Polygon
 
