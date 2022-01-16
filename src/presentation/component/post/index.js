@@ -32,6 +32,41 @@ const PostCard = styled(Card)`
   min-width: 500px;
 `;
 
+export const Comment = ({
+  profile,
+  name,
+  isVerified,
+  comment,
+  hasMargin = true,
+}) => {
+  return (
+    <CardHeader
+      avatar={
+        <Avatar
+          alt="profile"
+          src={profile}
+          sx={{ width: 48, height: 48 }}
+          onClick={() => {
+            console.log("hio");
+          }}
+        />
+      }
+      title={
+        <div style={{ display: "flex" }}>
+          <Typography variant="body1" color="text.secondary">
+            {name}
+          </Typography>
+          {isVerified && (
+            <img src={OpenSeaVerified} style={{ width: 20, margin: "0 5px" }} />
+          )}
+        </div>
+      }
+      subheader={comment}
+      sx={{ padding: "0", marginBottom: hasMargin ? "20px" : 0 }}
+    />
+  );
+};
+
 export default function Post({
   profile,
   name,
@@ -39,6 +74,7 @@ export default function Post({
   content,
   image,
   account,
+  comments,
   nftGroup = "Whoodid",
 }) {
   const [expanded, setExpanded] = useState(false);
@@ -47,11 +83,21 @@ export default function Post({
     setExpanded(!expanded);
   };
 
+  const handleProfileClick = () => {
+    console.log("hio");
+    console.log(typeof profile);
+  };
+
   return (
     <PostCard sx={{ borderRadius: "10px" }} elevation={1}>
       <CardHeader
         avatar={
-          <Avatar alt="profile" src={profile} sx={{ width: 48, height: 48 }} />
+          <Avatar
+            alt="profile"
+            src={profile}
+            sx={{ width: 48, height: 48 }}
+            onClick={handleProfileClick}
+          />
         }
         action={
           <IconButton aria-label="settings">
@@ -107,6 +153,14 @@ export default function Post({
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Comments</Typography>
+          {comments}
+          <Comment
+            profile={profile}
+            name={name}
+            isVerified={isVerified}
+            comment="wow, your new cat is so cool!"
+            hasMargin={false}
+          />
         </CardContent>
       </Collapse>
     </PostCard>

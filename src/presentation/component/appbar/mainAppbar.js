@@ -44,7 +44,7 @@ const MainAppBar = () => {
             <ProfileImage
               src={currentNftProfile}
               alt="NFT Profile Image"
-              onClick={() => setIsProfileDrawerOpen(true)}
+              onClick={() => setIsProfileDrawerOpen(!isProfileDrawerOpen)}
             />
           ) : (
             <PersonIcon
@@ -68,7 +68,14 @@ const MainAppBar = () => {
         setIsProfileDrawerOpen={setIsProfileDrawerOpen}
         currentNftProfile={currentNftProfile}
         setCurrentNftProfile={setCurrentNftProfile}
-        followingHashtags={['BEER', 'CRYPTO', 'DOGECOIN', 'BEER', 'CRYPTO', 'DOGECOIN']}
+        followingHashtags={[
+          "BEER",
+          "CRYPTO",
+          "DOGECOIN",
+          "BEER",
+          "CRYPTO",
+          "DOGECOIN",
+        ]}
       />
     </MaterialAppBar>
   );

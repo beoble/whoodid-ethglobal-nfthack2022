@@ -13,8 +13,12 @@ import {
   PostGreenSalad,
   PostHoodie,
   PostKryptonium,
-  PostMelvin, PostNftArt, PostNftProjectAd,
-  PostShipDuck, PostStayStrong, PostVitalik,
+  PostMelvin,
+  PostNftArt,
+  PostNftProjectAd,
+  PostShipDuck,
+  PostStayStrong,
+  PostVitalik,
 } from "./Posts";
 import { WhoodidSdk } from "./sdk/whoodid_sdk";
 import { truncateString, converStringArrayToString } from "./util";
@@ -109,29 +113,27 @@ function App() {
     },
   ];
 
-  const setPostsWithGroup = () => {
+  const setPostsWith = (by, filterFunc) => {
     let selectedPosts = [];
-    groups.forEach((nft) => {
-      selectedPosts.push(...postList.filter((post) => post.collection == nft));
+    by.forEach((element) => {
+      selectedPosts.push(
+        ...postList.filter((post) => filterFunc(post, element))
+      );
     });
     setPosts([...selectedPosts.map((post) => post.element)]);
   };
 
   useEffect(() => {
-    setPostsWithGroup();
+    setPostsWith(groups, (post, element) => post.collection == element);
   }, [groups]);
 
   useEffect(() => {
     if (hashtags.length > 0) {
-      let selectedPosts = [];
-      hashtags.forEach((hashtag) => {
-        selectedPosts.push(
-          ...postList.filter((post) => post.hashtags.includes(hashtag))
-        );
-      });
-      setPosts([...selectedPosts.map((post) => post.element)]);
+      setPostsWith(hashtags, (post, element) =>
+        post.hashtags.includes(element)
+      );
     } else {
-      setPostsWithGroup();
+      setPostsWith(groups, (post, element) => post.collection == element);
     }
   }, [hashtags]);
 
