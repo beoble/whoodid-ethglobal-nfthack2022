@@ -12,7 +12,11 @@ export const NFTGroup = {
   Cryptoadz: "Cryptoadz",
   CryptoPunk: "CryptoPunk",
   CoolCats: "CoolCats",
-  Mekaverse: "Mekaverse",
+  Mekaverse: "MekaVerse",
+  MekaverseFactory: "MekaVerse Factory",
+  ScatteredShoeuziVol1: "Scattered shoeuzi Vol.1",
+  SecretSocietyOfWhales: "Secret Society of Whales",
+  Rarible: "Rarible",
 };
 
 export default useGroup;
