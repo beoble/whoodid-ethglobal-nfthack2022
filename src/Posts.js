@@ -209,7 +209,7 @@ export const PostNftProjectAd = () => {
         <Typography variant="body1" color="text.secondary">
           Presale goes live in just 2 days! 🔥🔥🔥
         </Typography>
-        <Typography variant="body1" color="#00A0FA" sx={{cursor: "pointer"}}>
+        <Typography variant="body1" color="#00A0FA" sx={{ cursor: "pointer" }}>
           www.cryptopunks2077nft.art
         </Typography>
         <Typography variant="body1" color="#00A0FA">
@@ -244,4 +244,271 @@ export const PostVitalik = () => {
       image={VaccinePassportsMap}
     />
   );
+};
+
+export const PostOhDuck = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Sharing my fav{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #anime{" "}
+        </Typography>
+        <Typography display="inline" variant="body1" color="text.secondary">
+          character. A must-watch every winter for me ❄️❄️❄️
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Toradora #anime #Taiga
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="ohduck.eth"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+    />
+  );
+};
+
+export const PostReadyPlayerOne = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        When do you guys think{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #Metaverse{" "}
+        </Typography>
+        <Typography display="inline" variant="body1" color="text.secondary">
+          like Ready Player One will come into reality? I am guessing in 10
+          years for sure!
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Metaverse #movie
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="Oasis" profile={Hood512} content={<Content />} />;
+};
+
+export const PostSummerWars = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        If you love{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #anime{" "}
+        </Typography>
+        and{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #Metaverse,{" "}
+        </Typography>
+        <Typography display="inline" variant="body1" color="text.secondary">
+          you freakin' MUST WATCH THIS MOVE!!! LOVE EVERY SECOND OF IT!!!
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Metaverse #movie #SummerWars
+        </Typography>
+      </Typography>
+    );
+  };
+  return <Post name="Oasis" profile={Hood512} content={<Content />} />;
+};
+
+export const PostHiringAd = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Binance is looking for a{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #frontend #developer
+        </Typography>
+        !{" "}
+        <Typography variant="body1" color="text.secondary">
+          Check the link below for more details and application!
+        </Typography>
+        <Typography variant="body1" color="#00A0FA" sx={{ cursor: "pointer" }}>
+          www.binance.com/careers/job-id=34921
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Binance #RemoteWork #Hiring #Developer
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="binance.eth"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+    />
+  );
+};
+
+export const PostDog = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        These are my Doge and Coin!
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #DogeCoin{" "}
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          We will go to the moon together!!!
+        </Typography>
+        <Typography variant="body1" color="#00A0FA">
+          #Animals #cat #kitten
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="binance.eth"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+    />
+  );
+};
+
+export const PostCat = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Today's cute{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #cat{" "}
+        </Typography>
+          <Typography display="inline" variant="body1" color="text.secondary">
+              picture - my cousin named them{" "}
+          </Typography>
+          <Typography display="inline" variant="body1" color="#00A0FA">
+              #Shiba{" "}
+          </Typography>
+          and{" "}
+          <Typography display="inline" variant="body1" color="#00A0FA">
+              #Coin{" "}
+          </Typography>
+          😂😂😂
+        <Typography variant="body1" color="#00A0FA">
+          #Animals #cat #kitten #ShibaCoin
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="binance.eth"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+    />
+  );
+};
+
+export const PostAespa = () => {
+  const Content = () => {
+    return (
+      <Typography variant="body1" color="text.secondary">
+        Hello fellow MY! Where can I get{" "}
+        <Typography display="inline" variant="body1" color="#00A0FA">
+          #Aespa{" "}
+        </Typography>
+        goods?{" "}
+        <Typography variant="body1" color="#00A0FA">
+          #Kpop #Aespa
+        </Typography>
+      </Typography>
+    );
+  };
+  return (
+    <Post
+      name="winter_next_level"
+      isVerified
+      profile={Hood512}
+      content={<Content />}
+    />
+  );
+};
+
+export const PostCoinQuestion = () => {
+    const Content = () => {
+        return (
+            <Typography variant="body1" color="text.secondary">
+                anyone heard of{" "}
+                <Typography display="inline" variant="body1" color="#00A0FA">
+                    #KimchiCoin
+                </Typography>
+                ?{" "}
+                <Typography variant="body1" color="text.secondary">
+                    worth investing or just another shit coin?
+                </Typography>
+                <Typography variant="body1" color="#00A0FA">
+                    #KimchiCoin #Investment
+                </Typography>
+            </Typography>
+        );
+    };
+    return (
+        <Post
+            name="binance.eth"
+            isVerified
+            profile={Hood512}
+            content={<Content />}
+        />
+    );
+};
+
+export const PostGodOfWar = () => {
+    const Content = () => {
+        return (
+            <Typography variant="body1" color="text.secondary">
+                Damn!!!{" "}
+                <Typography display="inline" variant="body1" color="#00A0FA">
+                    #GodOfWar{" "}
+                </Typography>
+                finally available for PC!!!{" "}
+                <Typography variant="body1" color="text.secondary">
+                    LOVE YOU KRATOS!!!
+                </Typography>
+                <Typography variant="body1" color="#00A0FA">
+                    #Game #GodOfWar
+                </Typography>
+            </Typography>
+        );
+    };
+    return (
+        <Post
+            name="binance.eth"
+            isVerified
+            profile={Hood512}
+            content={<Content />}
+        />
+    );
+};
+
+export const PostTeen = () => {
+    const Content = () => {
+        return (
+            <Typography variant="body1" color="text.secondary">
+                too much homework. fml.{" "}
+                <Typography variant="body1" color="#00A0FA">
+                    #SchoolLife #fml
+                </Typography>
+            </Typography>
+        );
+    };
+    return (
+        <Post
+            name="binance.eth"
+            isVerified
+            profile={Hood512}
+            content={<Content />}
+        />
+    );
 };
