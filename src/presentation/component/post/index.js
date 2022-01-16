@@ -169,8 +169,8 @@ export default function Post({
           <Typography paragraph>Comments</Typography>
           {comments}
           <Comment
-            profile={profile}
-            name={name}
+            profile=""
+            name="cryptocat.eth"
             isVerified={isVerified}
             comment="wow, your new cat is so cool!"
             hasMargin={false}
