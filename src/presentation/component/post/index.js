@@ -38,6 +38,7 @@ export default function Post({
   isVerified,
   content,
   image,
+  account,
   nftGroup = "Whoodid",
 }) {
   const [expanded, setExpanded] = useState(false);

@@ -25,6 +25,7 @@ const PostContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
+  min-height: 100%;
   background-color: #00000015;
   margin: 72px 250px 0px 260px;
   padding: 0px 2px;
@@ -63,6 +64,15 @@ function App() {
     }
   );
 
+  const testArray = [<PostGreenSalad />, <PostHoodie />];
+  const posts = [
+    {
+      element: <PostGreenSalad />,
+      collection: NFTGroup.CoolCats,
+      hashtags: [HashTags.NFT],
+    },
+  ];
+
   useEffect(() => {
     //testOpenSea();
     sdk.testOpenSea();
@@ -89,6 +99,7 @@ function App() {
                   </span>
                 </PostHeader>
                 <Posts>
+                  {testArray}
                   <PostGreenSalad />
                   <PostMelvin />
                   <PostShipDuck />

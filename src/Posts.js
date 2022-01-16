@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import Post from "./presentation/component/post";
 import Coolcat279 from "./assets/nft/coolcat279.png";
 import Coolcat7795 from "./assets/nft/coolcat7795.png";
